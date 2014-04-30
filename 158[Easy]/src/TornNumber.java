@@ -60,6 +60,6 @@ public class TornNumber {
             tornNumber(i, divisor);
         }
         checkDuplicate();
-        //comments!!!!
+        //comments!!!
     }
 }
