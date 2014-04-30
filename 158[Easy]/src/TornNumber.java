@@ -59,6 +59,7 @@ public class TornNumber {
         for (long i = min; i < max; i++) {
             tornNumber(i, divisor);
         }
-        checkDuplicate();//change?
+        checkDuplicate();
+        //comments!!!!
     }
 }
