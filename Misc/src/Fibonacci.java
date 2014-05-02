@@ -1,20 +1,32 @@
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import java.awt.FlowLayout;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
+/**
+ * Fibonacci number generator. GUI takes n input and outputs nth Fibonacci number. Uses closed form Binet's formula
+ * using a phi approximation.
+ */
 public class Fibonacci implements ActionListener{
 
     private static String number;
     private static JTextArea numarea = new JTextArea();
     private static JTextField numinput = new JTextField(10);
-    private static JDialog dialog;
-    private static JFrame frame;
 
     Fibonacci() {
-        frame = new JFrame("Fibonacci");
+        JFrame frame = new JFrame("Fibonacci");
         frame.setLayout(new FlowLayout());
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,8 +46,8 @@ public class Fibonacci implements ActionListener{
         numarea.setRows(10);
         numarea.setEditable(false);
 	    numarea.setWrapStyleWord(true);
-        JScrollPane spane = new JScrollPane(numarea);
-        results.add(spane);
+        JScrollPane sPane = new JScrollPane(numarea);
+        results.add(sPane);
         frame.add(results);
 
         JPanel other = new JPanel();
@@ -47,7 +59,7 @@ public class Fibonacci implements ActionListener{
 
         frame.add(other);
 
-        dialog = new JDialog((Frame) null, "Results",false);
+        JDialog dialog = new JDialog((Frame) null, "Results", false);
         dialog.setSize(200, 200);
         dialog.setResizable(true);
         dialog.setVisible(true);
@@ -174,12 +186,7 @@ public class Fibonacci implements ActionListener{
 		    // If Nimbus is not available, you can set the GUI to another look and feel.
 	    }
 
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new Fibonacci();
-            }
-        });
+        SwingUtilities.invokeLater(Fibonacci::new);
 //
     }
 }
