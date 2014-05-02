@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05bccd6d-8b74-42aa-86f1-d4ba2f00cb80" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DailyProgrammer.iws" />
@@ -889,12 +888,17 @@
       <workItem from="1398993626298" duration="148000" />
       <workItem from="1398993847864" duration="205000" />
       <workItem from="1398994104499" duration="428000" />
-      <workItem from="1398994568498" duration="49000" />
+      <workItem from="1398994568498" duration="73000" />
     </task>
+    <task id="LOCAL-00001" summary="Moving around">
+      <created>1398994629039</created>
+      <updated>1398994629039</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41061000" />
+    <option name="totallyTimeSpent" value="41085000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
@@ -944,6 +948,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Moving around" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moving around" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
