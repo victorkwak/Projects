@@ -1,0 +1,1103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0cdd85c9-8a20-4799-a32a-cc381ce2ab6e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/NinjaGame.java" afterPath="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/NinjaGame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+    <ignored path="Game.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
+      </breakpoint>
+    </breakpoint_any>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Game" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="Grid.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Grid.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="88" column="0" selection-start="2232" selection-end="2232" vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="1575">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Engine.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Engine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1004" column="20" selection-start="31335" selection-end="31335" vertical-scroll-proportion="0.0" vertical-offset="15060" max-vertical-offset="15510">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UI.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/UI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="101" column="51" selection-start="2550" selection-end="2550" vertical-scroll-proportion="-0.32234958" vertical-offset="1515" max-vertical-offset="5460">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Victor" />
+      </list>
+    </option>
+    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myStructureFilterPaths" />
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Item.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/NPC.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Debug.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Grid.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Bullet.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Briefcase.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Empty.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Engine.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Ninja.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Objects.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Radar.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Shield.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Player.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Room.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/NinjaGame.java" />
+        <option value="$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/UI.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="1440" />
+    <option name="height" value="795" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Code style issues</id>
+          </State>
+          <State>
+            <id>Internationalization issues</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>Probable bugs</id>
+          </State>
+          <State>
+            <id>Properties Files</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="Undo Check Out" />
+    <OptionsSetting value="true" id="Get Latest Version" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NinjaGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="37" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="38" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="37" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="41" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="327" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="329" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="39" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="38" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="editing.templates" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
+  </component>
+  <component name="RunManager" selected="Application.NinjaGame">
+    <configuration default="false" name="NinjaGame" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="edu.csupomona.cs.cs141.NinjaGame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="edu.csupomona.cs.cs141.NinjaGame.NinjaGame" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Game" />
+      <envs />
+      <RunnerSettings RunnerId="Cover" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Cover" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Application.NinjaGame" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.NinjaGame" />
+      </list>
+    </recent_temporary>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0cdd85c9-8a20-4799-a32a-cc381ce2ab6e" name="Default" comment="" />
+      <created>1384386852391</created>
+      <updated>1384386852391</updated>
+      <workItem from="1389028775260" duration="564000" />
+      <workItem from="1389030047635" duration="53000" />
+      <workItem from="1389030936010" duration="10000" />
+      <workItem from="1389031696228" duration="1185000" />
+      <workItem from="1389339441585" duration="17000" />
+    </task>
+    <task id="LOCAL-00001" summary="Git Testing">
+      <created>1384943545576</created>
+      <updated>1384943545576</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Git Testing">
+      <created>1384944113900</created>
+      <updated>1384944113900</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Git Testing">
+      <created>1384944434790</created>
+      <updated>1384944434790</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Commit vs Push">
+      <created>1384944591093</created>
+      <updated>1384944591094</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Just Commit&#10;">
+      <created>1384944627425</created>
+      <updated>1384944627425</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Just Commit&#10;">
+      <created>1384944645957</created>
+      <updated>1384944645957</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Both">
+      <created>1384944661791</created>
+      <updated>1384944661791</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Reverting">
+      <created>1384946920370</created>
+      <updated>1384946920370</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Reverting">
+      <created>1384983385799</created>
+      <updated>1384983385799</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Reverting">
+      <created>1384984210257</created>
+      <updated>1384984210257</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Reverting">
+      <created>1384984395650</created>
+      <updated>1384984395650</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Erased this.b in UI">
+      <created>1384988682235</created>
+      <updated>1384988682235</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Erased this.b in UI">
+      <created>1384988713207</created>
+      <updated>1384988713207</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Testing">
+      <created>1384989168162</created>
+      <updated>1384989168162</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Testing">
+      <created>1384989195974</created>
+      <updated>1384989195974</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Testing">
+      <created>1384989229796</created>
+      <updated>1384989229796</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Testing">
+      <created>1385060451119</created>
+      <updated>1385060451119</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Testing">
+      <created>1385065542254</created>
+      <updated>1385065542254</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Testing">
+      <created>1385067485850</created>
+      <updated>1385067485850</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Testing">
+      <created>1385067562631</created>
+      <updated>1385067562631</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Testing">
+      <created>1385079662157</created>
+      <updated>1385079662157</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Testing">
+      <created>1385080099328</created>
+      <updated>1385080099328</updated>
+    </task>
+    <task id="LOCAL-00023" summary="UI">
+      <created>1385080171586</created>
+      <updated>1385080171586</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Victor">
+      <created>1385080183280</created>
+      <updated>1385080183280</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Victor">
+      <created>1385087238322</created>
+      <updated>1385087238323</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Victor">
+      <created>1385096287496</created>
+      <updated>1385096287496</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Victor">
+      <created>1385410593365</created>
+      <updated>1385410593365</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Changed Objects code, along with the extending classes so we're not arbitrarily replacing code.">
+      <created>1385410700297</created>
+      <updated>1385410700297</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Changed Objects code, along with the extending classes so we're not arbitrarily replacing code.">
+      <created>1385416410139</created>
+      <updated>1385416410139</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Almost done!!!!! Niggaz!!!!">
+      <created>1385592353145</created>
+      <updated>1385592353145</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Almost done!!!!! Niggaz!!!!">
+      <created>1385793929556</created>
+      <updated>1385793929556</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Almost done!!!!! Niggaz!!!!">
+      <created>1385793935956</created>
+      <updated>1385793935956</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Almost done!!!!!">
+      <created>1385794305468</created>
+      <updated>1385794305468</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Almost done!!!!!">
+      <created>1385794425844</created>
+      <updated>1385794425844</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Victor">
+      <created>1385794481086</created>
+      <updated>1385794481086</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Victor">
+      <created>1385794489007</created>
+      <updated>1385794489007</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Victor">
+      <created>1385795835139</created>
+      <updated>1385795835139</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Victor">
+      <created>1385795989272</created>
+      <updated>1385795989273</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Victor">
+      <created>1385897751350</created>
+      <updated>1385897751350</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Shield works now. It's really shitty code, but our code is all over the place to begin and I did what I could.">
+      <created>1385949062669</created>
+      <updated>1385949062669</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Shield works now. It's really shitty code, but our code is all over the place to begin and I did what I could.">
+      <created>1385949157071</created>
+      <updated>1385949157071</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Shield works now. It's really shitty code, but our code is all over the place to begin and I did what I could.">
+      <created>1385949165099</created>
+      <updated>1385949165099</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Almost done.">
+      <created>1385952513703</created>
+      <updated>1385952513703</updated>
+    </task>
+    <task id="LOCAL-00044" summary="It's done. I think.">
+      <created>1385960998476</created>
+      <updated>1385960998476</updated>
+    </task>
+    <task id="LOCAL-00045" summary="It's done. I think.">
+      <created>1385961249051</created>
+      <updated>1385961249051</updated>
+    </task>
+    <task id="LOCAL-00046" summary="It's done. I think.">
+      <created>1385961285844</created>
+      <updated>1385961285844</updated>
+    </task>
+    <task id="LOCAL-00047" summary="It's done. I think.">
+      <created>1385961305798</created>
+      <updated>1385961305798</updated>
+    </task>
+    <task id="LOCAL-00048" summary="It's done. I think.">
+      <created>1385963004863</created>
+      <updated>1385963004863</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Onto Comments!">
+      <created>1385973500888</created>
+      <updated>1385973500888</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Onto Comments!">
+      <created>1385974378155</created>
+      <updated>1385974378155</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Bug fix and comments.">
+      <created>1385977062261</created>
+      <updated>1385977062261</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Comments!!!">
+      <created>1385983092573</created>
+      <updated>1385983092573</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1829000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="22" width="1440" height="795" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5344333" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46882793" sideWeight="0.56456244" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.3400287" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16736111" sideWeight="0.4434655" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5565345" sideWeight="0.46484935" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USERS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+    <MESSAGE value="Git Testing" />
+    <MESSAGE value="Commit vs Push" />
+    <MESSAGE value="Just Commit&#10;" />
+    <MESSAGE value="Both" />
+    <MESSAGE value="Reverting" />
+    <MESSAGE value="Erased this.b in UI" />
+    <MESSAGE value="Testing" />
+    <MESSAGE value="UI" />
+    <MESSAGE value="Changed Objects code, along with the extending classes so we're not arbitrarily replacing code." />
+    <MESSAGE value="Almost done!!!!! Niggaz!!!!" />
+    <MESSAGE value="Almost done!!!!!" />
+    <MESSAGE value="Victor" />
+    <MESSAGE value="Shield works now. It's really shitty code, but our code is all over the place to begin and I did what I could." />
+    <MESSAGE value="Almost done." />
+    <MESSAGE value="It's done. I think." />
+    <MESSAGE value="Onto Comments!" />
+    <MESSAGE value="Bug fix and comments." />
+    <MESSAGE value="Comments!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments!!!" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Briefcase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="733" selection-end="897" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="945" selection-end="1103" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Radar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="54" selection-start="1100" selection-end="1100" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Ninja.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="54" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Empty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="20" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="52" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="53" selection-start="2121" selection-end="2121" vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="1575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/NinjaGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="3" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Shield.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="55" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="51" selection-start="2550" selection-end="2550" vertical-scroll-proportion="0.0" vertical-offset="1515" max-vertical-offset="5460">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Briefcase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="733" selection-end="897" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="945" selection-end="1103" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Radar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="54" selection-start="1100" selection-end="1100" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Ninja.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="54" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Empty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="20" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="52" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="53" selection-start="2121" selection-end="2121" vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="1575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/NinjaGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="3" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Shield.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="55" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="50" selection-start="1055" selection-end="1055" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="5460">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Briefcase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="733" selection-end="897" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="945" selection-end="1103" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Radar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="54" selection-start="1100" selection-end="1100" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Ninja.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="54" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Empty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="20" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="52" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="53" selection-start="2121" selection-end="2121" vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="1575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/NinjaGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="3" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Shield.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="55" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="362" column="17" selection-start="11644" selection-end="11644" vertical-scroll-proportion="0.0" vertical-offset="5430" max-vertical-offset="5460">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Briefcase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="733" selection-end="897" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="945" selection-end="1103" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Radar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="54" selection-start="1100" selection-end="1100" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Ninja.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="54" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Empty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="20" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="52" selection-start="669" selection-end="669" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="53" selection-start="2121" selection-end="2121" vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="1575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Objects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="1" selection-start="755" selection-end="755" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Objects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="20" selection-start="1087" selection-end="1087" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Shield.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="55" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.74545455" vertical-offset="75" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/NinjaGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="3" selection-start="403" selection-end="403" vertical-scroll-proportion="0.36363637" vertical-offset="0" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Briefcase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="733" selection-end="897" vertical-scroll-proportion="0.5272727" vertical-offset="120" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="945" selection-end="1103" vertical-scroll-proportion="0.6727273" vertical-offset="120" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Radar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="54" selection-start="1100" selection-end="1100" vertical-scroll-proportion="0.74545455" vertical-offset="90" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Ninja.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="54" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.74545455" vertical-offset="435" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Empty.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="20" selection-start="600" selection-end="600" vertical-scroll-proportion="0.54545456" vertical-offset="0" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="52" selection-start="669" selection-end="669" vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="53" selection-start="2121" selection-end="2121" vertical-scroll-proportion="0.76363635" vertical-offset="750" max-vertical-offset="1575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Grid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="0" selection-start="2232" selection-end="2232" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1004" column="20" selection-start="31335" selection-end="31335" vertical-scroll-proportion="0.0" vertical-offset="14400" max-vertical-offset="15225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/csupomona/cs/cs141/NinjaGame/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="51" selection-start="2550" selection-end="2550" vertical-scroll-proportion="-0.32234958" vertical-offset="1515" max-vertical-offset="5460">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

@@ -883,7 +883,7 @@
       <workItem from="1398993626298" duration="148000" />
       <workItem from="1398993847864" duration="205000" />
       <workItem from="1398994104499" duration="428000" />
-      <workItem from="1398994568498" duration="1724000" />
+      <workItem from="1398994568498" duration="1756000" />
     </task>
     <task id="LOCAL-00001" summary="Moving around">
       <created>1398994629039</created>
@@ -893,11 +893,15 @@
       <created>1398998946795</created>
       <updated>1398998946795</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Adding Game">
+      <created>1398999004435</created>
+      <updated>1398999004435</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42736000" />
+    <option name="totallyTimeSpent" value="42768000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
