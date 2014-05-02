@@ -23,6 +23,6 @@ public class NinjaGame {
 
     public static void main(String[] args) {
         UI ui = new UI();
-        ui.playerTurn();
+        ui.playerTurn();//Testing github
     }
 }
