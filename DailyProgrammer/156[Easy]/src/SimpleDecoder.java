@@ -1,6 +1,6 @@
 /**
  * Name:        Kwak, Victor
- * Due:         April 02, 2014
+ * Made:         April 02, 2014
  * <p/>
  * Description: To honor our mistake this week's easy challenge is to decode a message.
  *              I have encoded a message by adding a "4" to each character's ASCII value.
