@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05bccd6d-8b74-42aa-86f1-d4ba2f00cb80" name="Default" comment="">
+    <list default="true" id="05bccd6d-8b74-42aa-86f1-d4ba2f00cb80" name="Default" comment="Testing">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Misc/Misc.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DailyProgrammer.iws" />
@@ -25,16 +27,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Engine.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FindBriefcase/src/edu/csupomona/cs/cs141/NinjaGame/Engine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.0384617" vertical-offset="0" max-vertical-offset="15045">
-              <caret line="22" column="38" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Grid.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FindBriefcase/src/edu/csupomona/cs/cs141/NinjaGame/Grid.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -55,11 +47,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NinjaGame.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="NinjaGame.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FindBriefcase/src/edu/csupomona/cs/cs141/NinjaGame/NinjaGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26675788" vertical-offset="0" max-vertical-offset="731">
-              <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Fibonacci.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Misc/src/Fibonacci.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.04103967" vertical-offset="0" max-vertical-offset="2700">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -144,6 +146,7 @@
         <option value="$PROJECT_DIR$/src/XGames.java" />
         <option value="$PROJECT_DIR$/158[Easy]/src/TornNumber.java" />
         <option value="$PROJECT_DIR$/DailyProgrammer/158[Easy]/src/TornNumber.java" />
+        <option value="$PROJECT_DIR$/FindBriefcase/src/edu/csupomona/cs/cs141/NinjaGame/NinjaGame.java" />
       </list>
     </option>
   </component>
@@ -293,6 +296,20 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Projects" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Misc" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane">
@@ -342,7 +359,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.NinjaGame">
+  <component name="RunManager" selected="Application.Fibonacci">
     <configuration default="false" name="SimpleDecoder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="SimpleDecoder" />
@@ -427,6 +444,23 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="FindBriefcase" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Fibonacci" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="Fibonacci" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Misc" />
       <envs />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
@@ -832,18 +866,20 @@
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.SimpleDecoder" />
       <item index="1" class="java.lang.String" itemvalue="Application.XGames" />
       <item index="2" class="java.lang.String" itemvalue="Application.TornNumber" />
       <item index="3" class="java.lang.String" itemvalue="Application.NinjaGame" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Fibonacci" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.NinjaGame" />
-        <item index="1" class="java.lang.String" itemvalue="Application.TornNumber" />
-        <item index="2" class="java.lang.String" itemvalue="Application.SimpleDecoder" />
-        <item index="3" class="java.lang.String" itemvalue="Application.XGames" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.Fibonacci" />
+        <item index="1" class="java.lang.String" itemvalue="Application.NinjaGame" />
+        <item index="2" class="java.lang.String" itemvalue="Application.TornNumber" />
+        <item index="3" class="java.lang.String" itemvalue="Application.SimpleDecoder" />
+        <item index="4" class="java.lang.String" itemvalue="Application.XGames" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -852,6 +888,11 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -883,7 +924,7 @@
       <workItem from="1398993626298" duration="148000" />
       <workItem from="1398993847864" duration="205000" />
       <workItem from="1398994104499" duration="428000" />
-      <workItem from="1398994568498" duration="1756000" />
+      <workItem from="1398994568498" duration="2107000" />
     </task>
     <task id="LOCAL-00001" summary="Moving around">
       <created>1398994629039</created>
@@ -897,11 +938,15 @@
       <created>1398999004435</created>
       <updated>1398999004435</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Testing">
+      <created>1398999072796</created>
+      <updated>1398999072796</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42768000" />
+    <option name="totallyTimeSpent" value="43119000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
@@ -953,7 +998,8 @@
     </option>
     <MESSAGE value="Moving around" />
     <MESSAGE value="Adding Game" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Game" />
+    <MESSAGE value="Testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1284,8 +1330,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FindBriefcase/src/edu/csupomona/cs/cs141/NinjaGame/NinjaGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26675788" vertical-offset="0" max-vertical-offset="731">
-          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Misc/src/Fibonacci.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04103967" vertical-offset="0" max-vertical-offset="2700">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
