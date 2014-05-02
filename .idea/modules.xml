@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/156[Easy]/156[Easy].iml" filepath="$PROJECT_DIR$/156[Easy]/156[Easy].iml" />
-      <module fileurl="file://$PROJECT_DIR$/157[Easy]/157[Easy].iml" filepath="$PROJECT_DIR$/157[Easy]/157[Easy].iml" />
-      <module fileurl="file://$PROJECT_DIR$/158[Easy]/158[Easy].iml" filepath="$PROJECT_DIR$/158[Easy]/158[Easy].iml" />
-      <module fileurl="file://$PROJECT_DIR$/DailyProgrammer.iml" filepath="$PROJECT_DIR$/DailyProgrammer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DailyProgrammer/156[Easy]/156[Easy].iml" filepath="$PROJECT_DIR$/DailyProgrammer/156[Easy]/156[Easy].iml" />
+      <module fileurl="file://$PROJECT_DIR$/DailyProgrammer/157[Easy]/157[Easy].iml" filepath="$PROJECT_DIR$/DailyProgrammer/157[Easy]/157[Easy].iml" />
+      <module fileurl="file://$PROJECT_DIR$/DailyProgrammer/158[Easy]/158[Easy].iml" filepath="$PROJECT_DIR$/DailyProgrammer/158[Easy]/158[Easy].iml" />
+      <module fileurl="file://$PROJECT_DIR$/Projects.iml" filepath="$PROJECT_DIR$/Projects.iml" />
     </modules>
   </component>
 </project>

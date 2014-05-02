@@ -63,6 +63,12 @@ public class TornNumber {
         for (long i = min; i < max; i++) {
             tornNumber(i, divisor);
         }
-        checkDuplicate();
+        System.out.println("All results:");
+        tornArray.forEach(System.out::println);
+        System.out.println("");
+        if (numberLength <= 10) {
+            System.out.println("Duplicates removed:");
+            checkDuplicate();
+        }else System.out.println("Number greater than 10. Duplicates will be present.");
     }
 }
