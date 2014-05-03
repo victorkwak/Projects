@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05bccd6d-8b74-42aa-86f1-d4ba2f00cb80" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DailyProgrammer/156[Easy]/src/SimpleDecoder.java" afterPath="$PROJECT_DIR$/DailyProgrammer/156[Easy]/src/SimpleDecoder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Misc/src/Fibonacci.java" afterPath="$PROJECT_DIR$/Misc/src/Fibonacci.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DailyProgrammer.iws" />
@@ -39,8 +39,8 @@
       <file leaf-file-name="Fibonacci.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Misc/src/Fibonacci.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32360741" vertical-offset="146" max-vertical-offset="2955">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.26392573" vertical-offset="176" max-vertical-offset="2955">
+              <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,8 +78,8 @@
         <option value="$PROJECT_DIR$/158[Easy]/src/TornNumber.java" />
         <option value="$PROJECT_DIR$/DailyProgrammer/158[Easy]/src/TornNumber.java" />
         <option value="$PROJECT_DIR$/FindBriefcase/src/edu/csupomona/cs/cs141/NinjaGame/NinjaGame.java" />
-        <option value="$PROJECT_DIR$/Misc/src/Fibonacci.java" />
         <option value="$PROJECT_DIR$/DailyProgrammer/156[Easy]/src/SimpleDecoder.java" />
+        <option value="$PROJECT_DIR$/Misc/src/Fibonacci.java" />
       </list>
     </option>
   </component>
@@ -1001,11 +1001,15 @@
       <created>1399071864278</created>
       <updated>1399071864278</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Comments">
+      <created>1399072097112</created>
+      <updated>1399072097112</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44110000" />
+    <option name="totallyTimeSpent" value="44249000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
@@ -1060,7 +1064,8 @@
     <MESSAGE value="Testing" />
     <MESSAGE value="Some comments" />
     <MESSAGE value="Added Fibonacci generator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Fibonacci generator" />
+    <MESSAGE value="Comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1462,8 +1467,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Misc/src/Fibonacci.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32360741" vertical-offset="146" max-vertical-offset="2955">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.26392573" vertical-offset="176" max-vertical-offset="2955">
+          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

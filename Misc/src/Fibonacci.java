@@ -22,8 +22,8 @@ import java.text.DecimalFormat;
 public class Fibonacci implements ActionListener{
 
     private static String number;
-    private static JTextArea numarea = new JTextArea();
-    private static JTextField numinput = new JTextField(10);
+    private static JTextArea numArea = new JTextArea();
+    private static JTextField numInput = new JTextField(10);
 
     Fibonacci() {
         JFrame frame = new JFrame("Fibonacci");
@@ -41,19 +41,19 @@ public class Fibonacci implements ActionListener{
 
         JPanel results = new JPanel();
         results.setSize(400, 150);
-        numarea.setLineWrap(true);
-        numarea.setColumns(30);
-        numarea.setRows(10);
-        numarea.setEditable(false);
-	    numarea.setWrapStyleWord(true);
-        JScrollPane sPane = new JScrollPane(numarea);
+        numArea.setLineWrap(true);
+        numArea.setColumns(30);
+        numArea.setRows(10);
+        numArea.setEditable(false);
+	    numArea.setWrapStyleWord(true);
+        JScrollPane sPane = new JScrollPane(numArea);
         results.add(sPane);
         frame.add(results);
 
         JPanel other = new JPanel();
 
         other.add(n);
-        other.add(numinput);
+        other.add(numInput);
         other.add(calculate);
         other.add(clear);
 
@@ -71,12 +71,12 @@ public class Fibonacci implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Calculate")) {
-            fib(numinput.getText());
-            numarea.setText(number);
+            fib(numInput.getText());
+            numArea.setText(number);
 
         }else {
-            numarea.setText("");
-            numinput.setText("");
+            numArea.setText("");
+            numInput.setText("");
         }
     }
 
