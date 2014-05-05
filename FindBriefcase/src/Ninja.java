@@ -13,24 +13,46 @@
  *   Serenity Waits
  *   Tristan Warner
  */
-package edu.csupomona.cs.cs141.NinjaGame;
 
 /**
- * The radar will let the player know which room the briefcase is in.
+ * The NPC class. This is the Ninja.
  */
-public class Radar extends Objects {
-    private String radar;
+public class Ninja extends Objects {
+
+    private String ninja;
+    private boolean isAlive;
 
     /**
-     * Contructor for the Radar Class.
+     * Constructor for the Ninja class.
      */
-    public Radar() {
-        radar = " R ";
+    public Ninja() {
+        ninja = " N ";
+        isAlive = true;
         hidden = true;
         setX(x);
         setY(y);
         getX();
         getY();
+    }
+
+    /**
+     * Checks if the ninja is alive or not.
+     *
+     * @return true (alive) or false (dead)
+     */
+    public boolean checkIsAlive() {
+        if (isAlive) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Sets a ninja to be dead.
+     */
+    final public void die() {
+        isAlive = false;
     }
 
     /**
@@ -45,12 +67,12 @@ public class Radar extends Objects {
     /**
      * This method returns the symbolic representation of the objects.
      *
-     * @return Either the "empty" if hidden, or "radar" if not.
+     * @return Either the "empty" if hidden, or "ninja" if not.
      */
     public String toString() {
         if (hidden) {
             return " - ";
         }
-        return radar;
+        return ninja;
     }
 }

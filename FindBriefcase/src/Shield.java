@@ -13,21 +13,17 @@
  *   Serenity Waits
  *   Tristan Warner
  */
-package edu.csupomona.cs.cs141.NinjaGame;
 
 
 /**
- * Obtaining the briefcase will render the player victorious.
+ * The Shield item will give the player temporary invulnerability.
  */
-public class Briefcase extends Objects {
+public class Shield extends Objects {
 
-    private String briefcase;
+    private String shield;
 
-    /**
-     * Constructor for the Briefcase class.
-     */
-    public Briefcase() {
-        briefcase = "xXx";
+    public Shield() {
+        shield = " S ";
         hidden = true;
         setX(x);
         setY(y);
@@ -47,12 +43,12 @@ public class Briefcase extends Objects {
     /**
      * This method returns the symbolic representation of the objects.
      *
-     * @return Either the "room" if hidden, or "briefcase" if not.
+     * @return Either the "empty" if hidden, or "shield" if not.
      */
     public String toString() {
         if (hidden) {
-            return "|_|";
+            return " - ";
         }
-        return briefcase;
+        return shield;
     }
 }

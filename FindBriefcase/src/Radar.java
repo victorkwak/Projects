@@ -13,20 +13,18 @@
  *   Serenity Waits
  *   Tristan Warner
  */
-package edu.csupomona.cs.cs141.NinjaGame;
 
 /**
- * Allows the player to shoot and kill a ninja.
+ * The radar will let the player know which room the briefcase is in.
  */
-public class Bullet extends Objects {
-
-    private String bullet;
+public class Radar extends Objects {
+    private String radar;
 
     /**
-     * Constructor for the Bullet class.
+     * Contructor for the Radar Class.
      */
-    public Bullet() {
-        bullet = " B ";
+    public Radar() {
+        radar = " R ";
         hidden = true;
         setX(x);
         setY(y);
@@ -46,12 +44,12 @@ public class Bullet extends Objects {
     /**
      * This method returns the symbolic representation of the objects.
      *
-     * @return Either the "empty" if hidden, or "bullet" if not.
+     * @return Either the "empty" if hidden, or "radar" if not.
      */
     public String toString() {
         if (hidden) {
             return " - ";
         }
-        return bullet;
+        return radar;
     }
 }

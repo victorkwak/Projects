@@ -13,47 +13,25 @@
  *   Serenity Waits
  *   Tristan Warner
  */
-package edu.csupomona.cs.cs141.NinjaGame;
+
 
 /**
- * The NPC class. This is the Ninja.
+ * Obtaining the briefcase will render the player victorious.
  */
-public class Ninja extends Objects {
+public class Briefcase extends Objects {
 
-    private String ninja;
-    private boolean isAlive;
+    private String briefcase;
 
     /**
-     * Constructor for the Ninja class.
+     * Constructor for the Briefcase class.
      */
-    public Ninja() {
-        ninja = " N ";
-        isAlive = true;
+    public Briefcase() {
+        briefcase = "xXx";
         hidden = true;
         setX(x);
         setY(y);
         getX();
         getY();
-    }
-
-    /**
-     * Checks if the ninja is alive or not.
-     *
-     * @return true (alive) or false (dead)
-     */
-    public boolean checkIsAlive() {
-        if (isAlive) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Sets a ninja to be dead.
-     */
-    final public void die() {
-        isAlive = false;
     }
 
     /**
@@ -68,12 +46,12 @@ public class Ninja extends Objects {
     /**
      * This method returns the symbolic representation of the objects.
      *
-     * @return Either the "empty" if hidden, or "ninja" if not.
+     * @return Either the "room" if hidden, or "briefcase" if not.
      */
     public String toString() {
         if (hidden) {
-            return " - ";
+            return "|_|";
         }
-        return ninja;
+        return briefcase;
     }
 }

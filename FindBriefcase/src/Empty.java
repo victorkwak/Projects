@@ -1,5 +1,3 @@
-package edu.csupomona.cs.cs141.NinjaGame;
-
 /**
  * CS 141: Introduction to Programming and Problem Solving
  * Professor: Edwin Rodriguez

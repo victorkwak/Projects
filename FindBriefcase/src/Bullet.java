@@ -13,18 +13,19 @@
  *   Serenity Waits
  *   Tristan Warner
  */
-package edu.csupomona.cs.cs141.NinjaGame;
-
 
 /**
- * The Shield item will give the player temporary invulnerability.
+ * Allows the player to shoot and kill a ninja.
  */
-public class Shield extends Objects {
+public class Bullet extends Objects {
 
-    private String shield;
+    private String bullet;
 
-    public Shield() {
-        shield = " S ";
+    /**
+     * Constructor for the Bullet class.
+     */
+    public Bullet() {
+        bullet = " B ";
         hidden = true;
         setX(x);
         setY(y);
@@ -44,12 +45,12 @@ public class Shield extends Objects {
     /**
      * This method returns the symbolic representation of the objects.
      *
-     * @return Either the "empty" if hidden, or "shield" if not.
+     * @return Either the "empty" if hidden, or "bullet" if not.
      */
     public String toString() {
         if (hidden) {
             return " - ";
         }
-        return shield;
+        return bullet;
     }
 }

@@ -14,8 +14,6 @@
  *   Tristan Warner
  */
 
-package edu.csupomona.cs.cs141.NinjaGame;
-
 import java.io.*;
 import java.util.Scanner;
 

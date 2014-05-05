@@ -13,7 +13,6 @@
  *   Serenity Waits
  *   Tristan Warner
  */
-package edu.csupomona.cs.cs141.NinjaGame;
 
 import java.io.Serializable;
 import java.util.Random;
