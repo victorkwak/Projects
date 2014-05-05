@@ -1,5 +1,3 @@
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -118,11 +116,9 @@ public class Blackjack {
             System.out.println(dealerHand + " " + checkValue(dealerHand));
             System.out.println("");
         }
-        System.out.println("Number of hands: " + (int)numberOfHands);
-        System.out.println("Number of blackjacks: " + (int)numberOfBlackjacks);
-        DecimalFormat decimalFormat = new DecimalFormat("#.#");
-        decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
-        System.out.println("Blackjack percentage: " +
-                decimalFormat.format((numberOfBlackjacks / numberOfHands) * 100) + "%");
+        System.out.println("Number of hands: " + (int) numberOfHands);
+        System.out.println("Number of blackjacks: " + (int) numberOfBlackjacks);
+        System.out.printf("Blackjack percentage: %.1f%%",
+                (numberOfBlackjacks / numberOfHands) * 100);
     }
 }
