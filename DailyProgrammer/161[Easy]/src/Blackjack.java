@@ -35,10 +35,31 @@ public class Blackjack {
     }
 
     public static void deal() {
-        playerHand.add(0, deck.get(0));
-        dealerHand.add(0, deck.get(1));
-        playerHand.add(1, deck.get(2));
-        dealerHand.add(1, deck.get(3));
+        int index = 0;
+
+        playerHand.add(0, deck.get(index));
+        dealerHand.add(0, deck.get(++index));
+        playerHand.add(1, deck.get(++index));
+        dealerHand.add(1, deck.get(++index));
+
+        if (cardsValue(dealerHand) > 16) {
+            if (cardsValue(playerHand) < cardsValue(dealerHand)) {
+                playerHand.add(2, deck.get(++index));
+            }
+            if (cardsValue(playerHand) < cardsValue(dealerHand)) {
+                playerHand.add(3, deck.get(++index));
+            }
+            if (cardsValue(playerHand) < cardsValue(dealerHand)) {
+                playerHand.add(4, deck.get(++index));
+            }
+            if (cardsValue(playerHand) < cardsValue(dealerHand)) {
+                playerHand.add(5, deck.get(++index));
+            }
+        }
+
+        if (cardsValue(dealerHand) < 17) {
+//            dealerHand.add();
+        }
         for (int i = 0; i < 4; i++) {
             deck.remove(i);
         }
@@ -46,8 +67,8 @@ public class Blackjack {
     }
 
     public static int cardsValue(ArrayList<String> hand) {
-        int[] cardValues = new int[2];
-        for (int i = 0; i < 2; i++) {
+        int[] cardValues = new int[hand.size()];
+        for (int i = 0; i < cardValues.length; i++) {
             switch (hand.get(i).charAt(0)) {
                 case '2':
                     cardValues[i] = 2;
@@ -90,8 +111,11 @@ public class Blackjack {
                     break;
             }
         }
-        hand.clear();
-        return cardValues[0] + cardValues[1];
+        int total = 0;
+        for (int cardValue : cardValues) {
+            total += cardValue;
+        }
+        return total;
     }
 
     public static String checkValue(ArrayList<String> hand) {
@@ -112,7 +136,7 @@ public class Blackjack {
         int numberOfCards = 52 * numberOfDecks;
         while (deck.size() > numberOfCards / 5) {
             deal();
-            System.out.println(playerHand + " " + checkValue(playerHand));
+            System.out.println(playerHand.get(0) + playerHand.get(1) + " " + checkValue(playerHand));
             System.out.println(dealerHand + " " + checkValue(dealerHand));
             System.out.println("");
         }

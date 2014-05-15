@@ -21,7 +21,7 @@ import java.io.Serializable;
  * The superclass to all objects used in the game's grid. Implements serializable so that
  * all the objects in the grid can be saved.
  */
-public class Objects implements Serializable {
+abstract public class Objects implements Serializable {
 
     int x;
     int y;
