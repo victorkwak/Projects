@@ -1,15 +1,5 @@
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import java.awt.FlowLayout;
-import java.awt.Frame;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
@@ -186,7 +176,7 @@ public class Fibonacci implements ActionListener{
 		    // If Nimbus is not available, you can set the GUI to another look and feel.
 	    }
 
-        SwingUtilities.invokeLater(Fibonacci::new);
+//        SwingUtilities.invokeLater(Fibonacci::new);
 //
     }
 }
