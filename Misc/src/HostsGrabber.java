@@ -16,6 +16,15 @@ public class HostsGrabber {
     private static final String MVPS = "http://winhelp2002.mvps.org/hosts.txt";
     private static final String HPHOSTS = "http://hosts-file.net/ad_servers.asp";
     private static final String YOYOS = "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext";
+    private static final String SOMEONEWHOCARES = "http://someonewhocares.org/hosts/hosts";
+
+    //Credit to the sources
+    private static final String MY_COMMENTS =
+            "# The following list was built from the these sources:\n\n" +
+                    "# https://adaway.org/hosts.txt\n" +
+                    "# http://hosts-file.net/ad_servers.asp\n" +
+                    "# http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\n" +
+                    "# http://someonewhocares.org/hosts/hosts\n";
 
     public static void getHostFiles(String sourceName, ArrayList<String> sourceArray) throws Exception {
         URL sourceURL = new URL(sourceName);
@@ -23,7 +32,9 @@ public class HostsGrabber {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(sourceURL.openStream()));
             String currentLine;
             while ((currentLine = bufferedReader.readLine()) != null) {
-                sourceArray.add(currentLine);
+                if (!currentLine.startsWith("#")) {
+                    sourceArray.add(currentLine);
+                }
             }
             bufferedReader.close();
         } catch (IOException e) {
@@ -34,6 +45,7 @@ public class HostsGrabber {
     public static void writeHostsFile(ArrayList<String> compiledList) {
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("hosts"));
+            bufferedWriter.write(MY_COMMENTS);
             for (String aCompiledList : compiledList) {
                 bufferedWriter.write(aCompiledList + "\n");
             }
@@ -48,23 +60,31 @@ public class HostsGrabber {
         ArrayList<String> source2 = new ArrayList<>();
         ArrayList<String> source3 = new ArrayList<>();
         ArrayList<String> source4 = new ArrayList<>();
+        ArrayList<String> source5 = new ArrayList<>();
 
         try {
             getHostFiles(ADAWAY, source1);
             getHostFiles(MVPS, source2);
             getHostFiles(HPHOSTS, source3);
             getHostFiles(YOYOS, source4);
+            getHostFiles(SOMEONEWHOCARES, source5);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        //Add ArrayLists to LinkedHashSet to remove duplicate entries while maintaining list order.
         Set<String> hashedList = new LinkedHashSet<>();
         hashedList.addAll(source1);
         hashedList.addAll(source2);
         hashedList.addAll(source3);
         hashedList.addAll(source4);
+        hashedList.addAll(source5);
+
+        //Put back list without duplicates into final compiled list.
         ArrayList<String> compiledList = new ArrayList<>();
         compiledList.addAll(hashedList);
+
+        //Write into a hosts file.
         writeHostsFile(compiledList);
     }
 }
