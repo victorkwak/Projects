@@ -17,14 +17,18 @@ public class HostsGrabber {
     private static final String HPHOSTS = "http://hosts-file.net/ad_servers.asp";
     private static final String YOYOS = "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext";
     private static final String SOMEONEWHOCARES = "http://someonewhocares.org/hosts/hosts";
+    private static final String MALWARE = "http://www.malwaredomainlist.com/hostslist/hosts.txt";
+
 
     //Credit to the sources
     private static final String MY_COMMENTS =
             "# The following list was built from the these sources:\n\n" +
                     "# https://adaway.org/hosts.txt\n" +
+                    "# http://winhelp2002.mvps.org/hosts.txt\n" +
                     "# http://hosts-file.net/ad_servers.asp\n" +
                     "# http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\n" +
-                    "# http://someonewhocares.org/hosts/hosts\n";
+                    "# http://someonewhocares.org/hosts/hosts\n" +
+                    "# http://www.malwaredomainlist.com/hostslist/hosts.txt\n\n";
 
     public static void getHostFiles(String sourceName, ArrayList<String> sourceArray) throws Exception {
         URL sourceURL = new URL(sourceName);
@@ -32,9 +36,7 @@ public class HostsGrabber {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(sourceURL.openStream()));
             String currentLine;
             while ((currentLine = bufferedReader.readLine()) != null) {
-                if (!currentLine.startsWith("#")) {
                     sourceArray.add(currentLine);
-                }
             }
             bufferedReader.close();
         } catch (IOException e) {
@@ -61,13 +63,16 @@ public class HostsGrabber {
         ArrayList<String> source3 = new ArrayList<>();
         ArrayList<String> source4 = new ArrayList<>();
         ArrayList<String> source5 = new ArrayList<>();
+        ArrayList<String> source6 = new ArrayList<>();
 
+        System.out.println("Pulling from sources...");
         try {
             getHostFiles(ADAWAY, source1);
             getHostFiles(MVPS, source2);
             getHostFiles(HPHOSTS, source3);
             getHostFiles(YOYOS, source4);
             getHostFiles(SOMEONEWHOCARES, source5);
+            getHostFiles(MALWARE, source6);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -79,12 +84,15 @@ public class HostsGrabber {
         hashedList.addAll(source3);
         hashedList.addAll(source4);
         hashedList.addAll(source5);
+        hashedList.addAll(source6);
 
         //Put back list without duplicates into final compiled list.
         ArrayList<String> compiledList = new ArrayList<>();
         compiledList.addAll(hashedList);
 
+        System.out.println("Writing...");
         //Write into a hosts file.
         writeHostsFile(compiledList);
+        System.out.println("Done!");
     }
 }
