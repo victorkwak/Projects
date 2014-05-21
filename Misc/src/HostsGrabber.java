@@ -67,16 +67,22 @@ public class HostsGrabber {
 
         System.out.println("Pulling from sources...");
         try {
+            System.out.println("    Adaway...");
             getHostFiles(ADAWAY, source1);
+            System.out.println("    MVPS...");
             getHostFiles(MVPS, source2);
+            System.out.println("    hphosts...");
             getHostFiles(HPHOSTS, source3);
+            System.out.println("    yoyos...");
             getHostFiles(YOYOS, source4);
+            System.out.println("    someonewhocares...");
             getHostFiles(SOMEONEWHOCARES, source5);
+            System.out.println("    Malware...");
             getHostFiles(MALWARE, source6);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        System.out.println("Compiling List...");
         //Add ArrayLists to LinkedHashSet to remove duplicate entries while maintaining list order.
         Set<String> hashedList = new LinkedHashSet<>();
         hashedList.addAll(source1);
