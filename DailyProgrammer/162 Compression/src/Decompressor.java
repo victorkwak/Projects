@@ -39,12 +39,12 @@ public class Decompressor {
         }
     }
 
-    public void writeFile(File fileName) {
+    public void writeFile(File filename) {
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename));
             System.out.println("Writing file...");
             bufferedWriter.write(stringJoiner.toString());
-            System.out.println("File written to " + fileName);
+            System.out.println("File written to " + filename);
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();

@@ -176,7 +176,7 @@ public class Fibonacci implements ActionListener{
 		    // If Nimbus is not available, you can set the GUI to another look and feel.
 	    }
 
-//        SwingUtilities.invokeLater(Fibonacci::new);
-//
+        SwingUtilities.invokeLater(Fibonacci::new);
+
     }
 }
