@@ -1,11 +1,24 @@
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JProgressBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
+import javax.swing.SwingWorker;
+import javax.swing.UIManager;
 import javax.swing.text.DefaultCaret;
-import java.awt.*;
+import java.awt.FlowLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -166,8 +179,6 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("hosts"));
                 bufferedWriter.write(SOURCES_CREDIT);
-                System.out.println("Writing to " + absolutePath);
-                currentTask.append("Writing to " + absolutePath + "\n");
                 for (String aCompiledList : compiledList) {
                     bufferedWriter.write(aCompiledList + "\n");
                 }
@@ -182,12 +193,12 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                     Path hostsPathMac = Paths.get(absolutePath + "/hosts");
                     Path privateEtc = Paths.get("/private/etc");
                     if (Files.isReadable(hostsPathMac)) {
-                        System.out.println("Copying hosts file to " + privateEtc);
-                        currentTask.append("Copying hosts file to " + privateEtc + "\n");
+                        System.out.println("Copying hosts file to the System...");
+                        currentTask.append("Copying hosts file to the System...\n");
                         Runtime.getRuntime().exec("cp " + hostsPathMac + " " + privateEtc);
                         Runtime.getRuntime().exec("rm " + hostsPathMac);
                         System.out.println("Flushing DNS cache");
-                        currentTask.append("Flushing DNS cache");
+                        currentTask.append("Flushing DNS cache\n");
                         Runtime.getRuntime().exec("sudo killall -HUP mDNSResponder");
                     }
                 }
