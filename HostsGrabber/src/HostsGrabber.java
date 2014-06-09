@@ -7,13 +7,19 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
  * Victor Kwak
  * Description: Grabs hosts files from multiples sources and compiles into one list while removing duplicate entries.
+ *              Currently, the program can automatically update the system's hosts file automatically only on OS X systems.
  */
 public class HostsGrabber extends JFrame implements ActionListener, PropertyChangeListener {
     private static JProgressBar jProgressBar;
@@ -27,10 +33,10 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
         //GUI code
         setTitle("HostsGrabber");
         setLayout(new FlowLayout());
-        setSize(250, 200);
+        setSize(350, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JLabel instructions = new JLabel("Press \"Start\" to begin.");
+        JLabel instructions = new JLabel("      Press \"Start\" to begin.");
         add(instructions);
 
         start = new JButton("Start");
@@ -41,7 +47,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
         jProgressBar.setValue(0);
         add(jProgressBar);
 
-        currentTask = new JTextArea(5, 15);
+        currentTask = new JTextArea(5, 25);
         currentTask.setMargin(new Insets(5, 5, 5, 5));
         currentTask.setEditable(false);
         DefaultCaret defaultCaret = (DefaultCaret) currentTask.getCaret();
@@ -139,10 +145,15 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
         }
 
         public void writeHostsFile(ArrayList<String> compiledList) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
+            Path currentPath = Paths.get("");
+            String absolutePath = currentPath.toAbsolutePath().toString();
+
             //Credit to the sources
             final String SOURCES_CREDIT =
                     "# ==================================================================================\n" +
-                            "# The following list was built from the these sources:\n\n" +
+                            "# The following list was built from the these sources on " +
+                            simpleDateFormat.format(Calendar.getInstance().getTime()) + ":\n\n" +
                             "# https://adaway.org/hosts.txt\n" +
                             "# http://winhelp2002.mvps.org/hosts.txt\n" +
                             "# http://hosts-file.net/ad_servers.asp\n" +
@@ -155,12 +166,42 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("hosts"));
                 bufferedWriter.write(SOURCES_CREDIT);
-                System.out.println("Writing...");
-                currentTask.append("Writing...\n");
+                System.out.println("Writing to " + absolutePath);
+                currentTask.append("Writing to " + absolutePath + "\n");
                 for (String aCompiledList : compiledList) {
                     bufferedWriter.write(aCompiledList + "\n");
                 }
                 bufferedWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                //If OS X machine
+                if (System.getProperty("os.name").contains("Mac")) {
+                    Path hostsPathMac = Paths.get(absolutePath + "/hosts");
+                    Path privateEtc = Paths.get("/private/etc");
+                    if (Files.isReadable(hostsPathMac)) {
+                        System.out.println("Copying hosts file to " + privateEtc);
+                        currentTask.append("Copying hosts file to " + privateEtc + "\n");
+                        Runtime.getRuntime().exec("cp " + hostsPathMac + " " + privateEtc);
+                        System.out.println("Flushing DNS cache");
+                        currentTask.append("Flushing DNS cache");
+                        Runtime.getRuntime().exec("sudo killall -HUP mDNSResponder");
+                    }
+                }
+                //If Windows machine
+//                else if (System.getProperty("os.name").contains("Windows")) {
+//                    Path hostsPathWindows = Paths.get(absolutePath + "\\hosts");
+//                    Path windowsHosts = Paths.get("C:\\Windows\\System32\\Drivers\\etc\\hosts");
+//                    if (Files.isReadable(hostsPathWindows)) {
+//                        System.out.println("Copying hosts file to " + windowsHosts);
+//                        currentTask.append("Copying hosts file to " + windowsHosts);
+//                        Runtime.getRuntime().exec("runas /profile /user:Administrator \"cmd.exe /c Copy /y \"" + hostsPathWindows + "\" \"" + windowsHosts + "\"\"");
+//                        System.out.println("Copying hosts file to " + windowsHosts);
+//                        currentTask.append("Copying hosts file to " + windowsHosts + "\n");
+//                    }
+//                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -185,6 +226,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
 
     /**
      * Listens for "Start" button to be pushed and starts the program.
+     *
      * @param ae actioncommand always "Start"
      */
     @Override
@@ -197,6 +239,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
 
     /**
      * Listens for changes in the progressbar
+     *
      * @param evt
      */
     @Override
