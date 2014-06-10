@@ -66,7 +66,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
 
         public Set<String> generateList() {
 
-            final String[] sources = {"https://adaway.org/hosts.txt",
+            final String[] SOURCES = {"https://adaway.org/hosts.txt",
                     "http://winhelp2002.mvps.org/hosts.txt",
                     "http://hosts-file.net/ad_servers.asp",
                     "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext",
@@ -79,7 +79,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
             currentTask.append("Compiling from sources...\n");
             int progress = 0;
             try {
-                for (String e : sources) {
+                for (String e : SOURCES) {
                     System.out.print("    " + e + "...");
                     currentTask.append("    " + e + "...");
                     URL sourceURL = new URL(e);
@@ -90,7 +90,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                     }
                     System.out.print(" Done\n");
                     currentTask.append(" Done\n");
-                    progress += (100 / sources.length) - 1;
+                    progress += (100 / SOURCES.length) - 1;
                     setProgress(progress);
                     bufferedReader.close();
                 }
