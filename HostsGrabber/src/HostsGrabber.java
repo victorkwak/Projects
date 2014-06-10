@@ -46,7 +46,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
         //GUI code
         setTitle("HostsGrabber");
         setLayout(new FlowLayout());
-        setSize(350, 200);
+        setSize(350, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel instructions = new JLabel("      Press \"Start\" to begin.");
@@ -207,9 +207,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
 //                    Path hostsPathWindows = Paths.get(absolutePath + "\\hosts");
 //                    Path windowsHosts = Paths.get("C:\\Windows\\System32\\Drivers\\etc\\hosts");
 //                    if (Files.isReadable(hostsPathWindows)) {
-//                        System.out.println("Copying hosts file to " + windowsHosts);
-//                        currentTask.append("Copying hosts file to " + windowsHosts);
-//                        Runtime.getRuntime().exec("runas /profile /user:Administrator \"cmd.exe /c Copy /y \"" + hostsPathWindows + "\" \"" + windowsHosts + "\"\"");
+//                        Runtime.getRuntime().exec("cmd.exe /c Copy /y \"" + hostsPathWindows + "\" \"" + windowsHosts + "\"");
 //                        System.out.println("Copying hosts file to " + windowsHosts);
 //                        currentTask.append("Copying hosts file to " + windowsHosts + "\n");
 //                    }
@@ -250,9 +248,9 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
     }
 
     /**
-     * Listens for changes in the progressbar
+     * Used for updating progress bar and statements.
      *
-     * @param evt
+     * @param evt changes in getHosts object
      */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
@@ -270,7 +268,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                 }
             }
         } catch (Exception e) {
-            // If Nimbus is not available, you can set the GUI to another look and feel.
+            e.printStackTrace();
         }
         SwingUtilities.invokeLater(HostsGrabber::new);
     }
