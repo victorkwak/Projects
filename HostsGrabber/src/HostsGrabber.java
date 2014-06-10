@@ -1,30 +1,16 @@
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JProgressBar;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
-import javax.swing.SwingWorker;
-import javax.swing.UIManager;
+import javax.swing.*;
 import javax.swing.text.DefaultCaret;
-import java.awt.FlowLayout;
-import java.awt.Insets;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -32,7 +18,7 @@ import java.util.Set;
 /**
  * Victor Kwak
  * Description: Grabs hosts files from multiples sources and compiles into one list while removing duplicate entries.
- *              Currently, the program can automatically update the system's hosts file automatically only on OS X systems.
+ * Currently, the program can automatically update the system's hosts file automatically only on OS X systems.
  */
 public class HostsGrabber extends JFrame implements ActionListener, PropertyChangeListener {
     private static JProgressBar jProgressBar;
@@ -46,7 +32,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
         //GUI code
         setTitle("HostsGrabber");
         setLayout(new FlowLayout());
-        setSize(350, 250);
+        setSize(400, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel instructions = new JLabel("      Press \"Start\" to begin.");
@@ -57,10 +43,13 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
         add(start);
 
         jProgressBar = new JProgressBar(0, 100);
+        Dimension progressBarSize = jProgressBar.getPreferredSize();
+        progressBarSize.width = 250;
+        jProgressBar.setPreferredSize(progressBarSize);
         jProgressBar.setValue(0);
         add(jProgressBar);
 
-        currentTask = new JTextArea(5, 25);
+        currentTask = new JTextArea(8, 30);
         currentTask.setMargin(new Insets(5, 5, 5, 5));
         currentTask.setEditable(false);
         DefaultCaret defaultCaret = (DefaultCaret) currentTask.getCaret();
@@ -74,90 +63,45 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
      * Nested class provides main function of the program. Will run in a background thread.
      */
     class GetHosts extends SwingWorker<Void, Void> {
-        public ArrayList<String> generateList() {
-            // Sources
-            final String ADAWAY = "https://adaway.org/hosts.txt";
-            final String MVPS = "http://winhelp2002.mvps.org/hosts.txt";
-            final String HPHOSTS = "http://hosts-file.net/ad_servers.asp";
-            final String YOYOS = "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext";
-            final String SOMEONEWHOCARES = "http://someonewhocares.org/hosts/hosts";
-            final String MALWARE = "http://www.malwaredomainlist.com/hostslist/hosts.txt";
 
-            ArrayList<String> source1 = new ArrayList<>();
-            ArrayList<String> source2 = new ArrayList<>();
-            ArrayList<String> source3 = new ArrayList<>();
-            ArrayList<String> source4 = new ArrayList<>();
-            ArrayList<String> source5 = new ArrayList<>();
-            ArrayList<String> source6 = new ArrayList<>();
+        public Set<String> generateList() {
 
-            System.out.println("Pulling from sources...");
-            currentTask.append("Pulling from sources...\n");
+            final String[] sources = {"https://adaway.org/hosts.txt",
+                    "http://winhelp2002.mvps.org/hosts.txt",
+                    "http://hosts-file.net/ad_servers.asp",
+                    "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext",
+                    "http://someonewhocares.org/hosts/hosts",
+                    "http://www.malwaredomainlist.com/hostslist/hosts.txt"};
+
+            Set<String> compiledList = new LinkedHashSet<>();
+
+            System.out.println("Compiling from sources...");
+            currentTask.append("Compiling from sources...\n");
+            int progress = 0;
             try {
-                System.out.println("    Adaway...");
-                currentTask.append("    Adaway...\n");
-                getHostFiles(ADAWAY, source1);
-                setProgress(16);
-
-                System.out.println("    MVPS...");
-                currentTask.append("    MVPS...\n");
-                getHostFiles(MVPS, source2);
-                setProgress(32);
-
-                System.out.println("    hphosts...");
-                currentTask.append("    hphosts...\n");
-                getHostFiles(HPHOSTS, source3);
-                setProgress(50);
-
-                System.out.println("    yoyos...");
-                currentTask.append("    yoyos...\n");
-                getHostFiles(YOYOS, source4);
-                setProgress(66);
-
-                System.out.println("    someonewhocares...");
-                currentTask.append("    someonewhocares...\n");
-                getHostFiles(SOMEONEWHOCARES, source5);
-                setProgress(82);
-
-                System.out.println("    Malware...");
-                currentTask.append("    Malware...\n");
-                getHostFiles(MALWARE, source6);
-                setProgress(98);
+                for (String e : sources) {
+                    System.out.print("    " + e + "...");
+                    currentTask.append("    " + e + "...");
+                    URL sourceURL = new URL(e);
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(sourceURL.openStream()));
+                    String currentLine;
+                    while ((currentLine = bufferedReader.readLine()) != null) {
+                        compiledList.add(currentLine);
+                    }
+                    System.out.print(" Done\n");
+                    currentTask.append(" Done\n");
+                    progress += (100 / sources.length) - 1;
+                    setProgress(progress);
+                    bufferedReader.close();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            System.out.println("Compiling List...");
-            currentTask.append("Compiling List...\n");
-            //Add ArrayLists to LinkedHashSet to remove duplicate entries while maintaining list order.
-            Set<String> hashedList = new LinkedHashSet<>();
-            hashedList.addAll(source1);
-            hashedList.addAll(source2);
-            hashedList.addAll(source3);
-            hashedList.addAll(source4);
-            hashedList.addAll(source5);
-            hashedList.addAll(source6);
-
-            //Put back list without duplicates into final compiled list.
-            ArrayList<String> compiledList = new ArrayList<>();
-            compiledList.addAll(hashedList);
             setProgress(99);
             return compiledList;
         }
 
-        public void getHostFiles(String sourceName, ArrayList<String> sourceArray) {
-            try {
-                URL sourceURL = new URL(sourceName);
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(sourceURL.openStream()));
-                String currentLine;
-                while ((currentLine = bufferedReader.readLine()) != null) {
-                    sourceArray.add(currentLine);
-                }
-                bufferedReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        public void writeHostsFile(ArrayList<String> compiledList) {
+        public void writeHostsFile(Set<String> compiledList) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
             Path currentPath = Paths.get("");
             String absolutePath = currentPath.toAbsolutePath().toString();
@@ -196,7 +140,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                         System.out.println("Copying hosts file to the System...");
                         currentTask.append("Copying hosts file to the System...\n");
                         Runtime.getRuntime().exec("cp " + hostsPathMac + " " + privateEtc);
-                        Runtime.getRuntime().exec("rm " + hostsPathMac);
+//                        Runtime.getRuntime().exec("rm " + hostsPathMac);
                         System.out.println("Flushing DNS cache");
                         currentTask.append("Flushing DNS cache\n");
                         Runtime.getRuntime().exec("sudo killall -HUP mDNSResponder");
@@ -216,7 +160,6 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                 e.printStackTrace();
             }
         }
-
 
         @Override
         public Void doInBackground() throws Exception {

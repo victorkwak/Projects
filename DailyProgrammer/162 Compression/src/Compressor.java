@@ -1,6 +1,9 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.StringJoiner;
 
 /**
@@ -27,6 +30,8 @@ public class Compressor {
     }
 
     public static void compress() {
+        String[] dictionary = stringJoiner.toString().split(" ");
+        Set<String> hashSet = new HashSet<>(Arrays.asList(dictionary));
 
     }
 
