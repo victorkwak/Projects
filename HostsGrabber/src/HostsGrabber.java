@@ -140,7 +140,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                         System.out.println("Copying hosts file to the System...");
                         currentTask.append("Copying hosts file to the System...\n");
                         Runtime.getRuntime().exec("cp " + hostsPathMac + " " + privateEtc);
-//                        Runtime.getRuntime().exec("rm " + hostsPathMac);
+                        Runtime.getRuntime().exec("rm " + hostsPathMac);
                         System.out.println("Flushing DNS cache");
                         currentTask.append("Flushing DNS cache\n");
                         Runtime.getRuntime().exec("sudo killall -HUP mDNSResponder");
