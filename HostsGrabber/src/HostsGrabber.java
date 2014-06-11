@@ -33,7 +33,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
         setTitle("HostsGrabber");
         setLayout(new FlowLayout());
         setSize(400, 250);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JLabel instructions = new JLabel("      Press \"Start\" to begin.");
         add(instructions);
