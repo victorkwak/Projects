@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.*;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,9 +22,21 @@ import java.util.Set;
  * Currently, the program can automatically update the system's hosts file automatically only on OS X systems.
  */
 public class HostsGrabber extends JFrame implements ActionListener, PropertyChangeListener {
-    private static JProgressBar jProgressBar;
-    private static JTextArea currentTask;
-    private static JButton start;
+    private JProgressBar jProgressBar;
+    private JTextArea currentTask;
+    private JButton start;
+    private int progress = 0;
+
+    //hosts files can be used directly
+    private final String[] HOSTS_SOURCES = {"https://adaway.org/hosts.txt",
+            "http://winhelp2002.mvps.org/hosts.txt",
+            "http://hosts-file.net/ad_servers.asp",
+            "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext",
+            "http://someonewhocares.org/hosts/hosts",
+            "http://www.malwaredomainlist.com/hostslist/hosts.txt"};
+    // AdBlock sources need to be converted
+
+    private final String[] ADBLOCK_SOURCES = {"http://www.fanboy.co.nz/fanboy-korean.txt"};
 
     /**
      * Constructor builds GUI
@@ -65,19 +78,19 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
     class GetHosts extends SwingWorker<Void, Void> {
 
         public Set<String> generateList() {
+            Set<String> list = new LinkedHashSet<>();
 
-            final String[] SOURCES = {"https://adaway.org/hosts.txt",
-                    "http://winhelp2002.mvps.org/hosts.txt",
-                    "http://hosts-file.net/ad_servers.asp",
-                    "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext",
-                    "http://someonewhocares.org/hosts/hosts",
-                    "http://www.malwaredomainlist.com/hostslist/hosts.txt"};
+            int numberOfSources = HOSTS_SOURCES.length + ADBLOCK_SOURCES.length;
 
-            Set<String> compiledList = new LinkedHashSet<>();
+            hostsList(list, HOSTS_SOURCES, numberOfSources);
+            adBlockList(list, ADBLOCK_SOURCES, numberOfSources);
+            setProgress(99);
+            return list;
+        }
 
-            System.out.println("Compiling from sources...");
-            currentTask.append("Compiling from sources...\n");
-            int progress = 0;
+        public void hostsList(Set<String> list, String[] SOURCES, int numberOfSources) {
+            System.out.println("Getting hosts files...");
+            currentTask.append("Getting hosts files...\n");
             try {
                 for (String e : SOURCES) {
                     System.out.print("    " + e + "...");
@@ -86,43 +99,94 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(sourceURL.openStream()));
                     String currentLine;
                     while ((currentLine = bufferedReader.readLine()) != null) {
-                        compiledList.add(currentLine);
+                        list.add(currentLine);
                     }
                     System.out.print(" Done\n");
                     currentTask.append(" Done\n");
-                    progress += (100 / SOURCES.length) - 1;
+                    progress += (100 / numberOfSources) - 1;
                     setProgress(progress);
                     bufferedReader.close();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            setProgress(99);
-            return compiledList;
+        }
+
+        public void adBlockList(Set<String> list, String[] SOURCES, int numberOfSources) {
+            System.out.println("Getting AdBlock lists...");
+            currentTask.append("Getting AdBlock lists...\n");
+            boolean useSection = false;
+            boolean write = false;
+            try {
+                for (String e : SOURCES) {
+                    System.out.print("    " + e + "...");
+                    currentTask.append("    " + e + "...");
+                    list.add("# " + e);
+                    URL sourceURL = new URL(e);
+                    //Server would not accept a non-browser connection. Must use addRequestProperty from HttpURLConnection.
+                    HttpURLConnection httpSource = (HttpURLConnection) sourceURL.openConnection();
+                    httpSource.addRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)");
+                    httpSource.connect();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpSource.getInputStream()));
+                    String currentLine;
+                    while ((currentLine = bufferedReader.readLine()) != null) {
+                        if (currentLine.startsWith("!")) {
+                            if (currentLine.contains("General blocking rules") ||
+                                    currentLine.contains("3rd party blocking rules")) {
+                                list.add("# " + currentLine.substring(currentLine.indexOf(" ")));
+                                useSection = true;
+                            } else if (currentLine.contains("License")) {
+                                list.add("# " + currentLine.substring(currentLine.indexOf("L")));
+                            }
+                        }
+                        if (useSection && currentLine.equals("!")) {
+                            write = !write;
+                            useSection = write;
+                        }
+                        if (useSection && write) {
+                            if (currentLine.startsWith("||")) {
+                                if (currentLine.contains("^") && !currentLine.contains("*")) {
+                                    list.add("127.0.0.1 " + currentLine.substring(2, currentLine.indexOf("^")));
+                                } else if (!currentLine.contains("*")) {
+                                    list.add("127.0.0.1 " + currentLine.substring(2));
+                                }
+                            }
+                        }
+                    }
+                    System.out.print(" Done\n");
+                    currentTask.append(" Done\n");
+                    progress += (100 / numberOfSources) - 1;
+                    setProgress(progress);
+                    bufferedReader.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        public String generateComments() {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
+            String comments = "# ==================================================================================\n" +
+                    "# The following list was built from the these sources on " +
+                    simpleDateFormat.format(Calendar.getInstance().getTime()) + ":\n\n";
+            for (String e : HOSTS_SOURCES) {
+                comments += "# " + e + "\n";
+            }
+            for (String e : ADBLOCK_SOURCES) {
+                comments += "# " + e + "\n";
+            }
+            comments += "\n" +
+                    "# ==================================================================================\n\n";
+            return comments;
         }
 
         public void writeHostsFile(Set<String> compiledList) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
             Path currentPath = Paths.get("");
             String absolutePath = currentPath.toAbsolutePath().toString();
 
-            //Credit to the sources
-            final String SOURCES_CREDIT =
-                    "# ==================================================================================\n" +
-                            "# The following list was built from the these sources on " +
-                            simpleDateFormat.format(Calendar.getInstance().getTime()) + ":\n\n" +
-                            "# https://adaway.org/hosts.txt\n" +
-                            "# http://winhelp2002.mvps.org/hosts.txt\n" +
-                            "# http://hosts-file.net/ad_servers.asp\n" +
-                            "# http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\n" +
-                            "# http://someonewhocares.org/hosts/hosts\n" +
-                            "# http://www.malwaredomainlist.com/hostslist/hosts.txt\n\n" +
-                            "# All original comments are maintained. Duplicate entries are removed. \n\n" +
-                            "# ==================================================================================\n\n";
-
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("hosts"));
-                bufferedWriter.write(SOURCES_CREDIT);
+                bufferedWriter.write(generateComments());
                 for (String aCompiledList : compiledList) {
                     bufferedWriter.write(aCompiledList + "\n");
                 }
