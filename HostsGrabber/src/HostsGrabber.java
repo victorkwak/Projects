@@ -135,8 +135,10 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                                     currentLine.contains("3rd party blocking rules")) {
                                 list.add("# " + currentLine.substring(currentLine.indexOf(" ")));
                                 useSection = true;
-                            } else if (currentLine.contains("License")) {
-                                list.add("# " + currentLine.substring(currentLine.indexOf("L")));
+                            } else if (currentLine.contains("License") ||
+                                    currentLine.contains("Title") ||
+                                    currentLine.contains("Updated")) {
+                                list.add("# " + currentLine.substring(2));
                             }
                         }
                         if (useSection && currentLine.equals("!")) {
