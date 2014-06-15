@@ -17,8 +17,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
- * Victor Kwak
- * Description: Grabs hosts files from multiples sources and compiles into one list while removing duplicate entries.
+ * Victor Kwak - 2014
+ * <p>
+ * Grabs hosts files from multiples sources and compiles into one list while removing duplicate entries.
  * Currently, the program can automatically update the system's hosts file automatically only on OS X systems.
  */
 public class HostsGrabber extends JFrame implements ActionListener, PropertyChangeListener {
@@ -26,23 +27,29 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
     private JTextArea currentTask;
     private JButton start;
     private int progress = 0;
+    private String os;
 
-    //hosts files can be used directly
     private final String[] HOSTS_SOURCES = {"https://adaway.org/hosts.txt",
             "http://winhelp2002.mvps.org/hosts.txt",
             "http://hosts-file.net/ad_servers.asp",
             "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext",
             "http://someonewhocares.org/hosts/hosts",
             "http://www.malwaredomainlist.com/hostslist/hosts.txt"};
-    // AdBlock sources need to be converted
 
-    private final String[] ADBLOCK_SOURCES = {"http://www.fanboy.co.nz/fanboy-korean.txt"};
+    private final String[] ADBLOCK_SOURCES = {"http://www.fanboy.co.nz/fanboy-korean.txt",
+            "https://easylist-downloads.adblockplus.org/easylist_noelemhide.txt"};
 
     /**
-     * Constructor builds GUI
+     * Determines OS and builds GUI
      */
     public HostsGrabber() {
-        //GUI code
+        os = System.getProperty("os.name");
+        if (System.getProperty("os.name").contains("Mac")) {
+            os = "Mac";
+        } else if (System.getProperty("os.name").contains("Windows")) {
+            os = "Windows";
+        }
+
         setTitle("HostsGrabber");
         setLayout(new FlowLayout());
         setSize(400, 250);
@@ -88,6 +95,11 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
             return list;
         }
 
+        /**
+         * @param list            HashSet. Same one used for overall list.
+         * @param SOURCES         These sources are already in hosts file format and can be used directly.
+         * @param numberOfSources The sum of all regular hosts and AdBlock sources. Used for progressbar incrementation.
+         */
         public void hostsList(Set<String> list, String[] SOURCES, int numberOfSources) {
             System.out.println("Getting hosts files...");
             currentTask.append("Getting hosts files...\n");
@@ -112,18 +124,28 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
             }
         }
 
+        /**
+         * Lists made for AdBlock extensions use lots of regular expressions, something that hosts files
+         * don't support. They still contain information usable by a hosts file (ad-server addresses) but
+         * they must be filtered out and changed into proper format. The lists also lack uniformity and
+         * so separate rules for different lists must be considered.
+         *
+         * @param list            HashSet. Same one used for overall list.
+         * @param SOURCES         Array of AdBlock sources
+         * @param numberOfSources The sum of all regular hosts and AdBlock sources. Used for progressbar incrementation.
+         */
         public void adBlockList(Set<String> list, String[] SOURCES, int numberOfSources) {
             System.out.println("Getting AdBlock lists...");
             currentTask.append("Getting AdBlock lists...\n");
-            boolean useSection = false;
-            boolean write = false;
             try {
                 for (String e : SOURCES) {
+                    boolean useSection = false;
                     System.out.print("    " + e + "...");
                     currentTask.append("    " + e + "...");
                     list.add("# " + e);
                     URL sourceURL = new URL(e);
-                    //Server would not accept a non-browser connection. Must use addRequestProperty from HttpURLConnection.
+                    // Server would not accept a non-browser connection.
+                    // Must use addRequestProperty from HttpURLConnection.
                     HttpURLConnection httpSource = (HttpURLConnection) sourceURL.openConnection();
                     httpSource.addRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)");
                     httpSource.connect();
@@ -131,27 +153,73 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                     String currentLine;
                     while ((currentLine = bufferedReader.readLine()) != null) {
                         if (currentLine.startsWith("!")) {
-                            if (currentLine.contains("General blocking rules") ||
-                                    currentLine.contains("3rd party blocking rules")) {
-                                list.add("# " + currentLine.substring(currentLine.indexOf(" ")));
-                                useSection = true;
-                            } else if (currentLine.contains("License") ||
+                            if (currentLine.contains("License") ||
+                                    currentLine.contains("Licence") ||
                                     currentLine.contains("Title") ||
                                     currentLine.contains("Updated")) {
                                 list.add("# " + currentLine.substring(2));
+                            } else if (currentLine.contains("General blocking rules") ||
+                                    currentLine.contains("3rd party blocking rules") ||
+                                    currentLine.contains("Third-party advertisers")) {
+                                list.add("# " + currentLine.substring(1));
+                                useSection = true;
+                            } else if (currentLine.contains("1st party") ||
+                                    currentLine.contains("Third-party advert") ||
+                                    currentLine.contains("Korean Trackers")) {
+                                useSection = false;
                             }
                         }
-                        if (useSection && currentLine.equals("!")) {
-                            write = !write;
-                            useSection = write;
-                        }
-                        if (useSection && write) {
-                            if (currentLine.startsWith("||")) {
-                                if (currentLine.contains("^") && !currentLine.contains("*")) {
-                                    list.add("127.0.0.1 " + currentLine.substring(2, currentLine.indexOf("^")));
-                                } else if (!currentLine.contains("*")) {
-                                    list.add("127.0.0.1 " + currentLine.substring(2));
+                        if (useSection && currentLine.startsWith("||")) {
+                            if (currentLine.contains("^")) {
+                                String temp = currentLine.substring(2, currentLine.indexOf("^"));
+                                if (temp.contains("*")) {
+                                    temp = temp.substring(0, temp.indexOf("*"));
+                                    if (temp.contains("/")) {
+                                        temp = temp.substring(0, temp.indexOf("/"));
+                                    }
+                                } else if (temp.contains("/")) {
+                                    temp = temp.substring(0, temp.indexOf("/"));
+                                    if (temp.contains("*")) {
+                                        temp = temp.substring(0, temp.indexOf("*"));
+                                    }
                                 }
+                                if (temp.contains(".")) {
+                                    list.add("127.0.0.1 " + temp);
+                                }
+                            } else if (currentLine.contains("*")) {
+                                String temp = currentLine.substring(2, currentLine.indexOf("*"));
+                                if (temp.contains("^")) {
+                                    temp = temp.substring(0, temp.indexOf("^"));
+                                    if (temp.contains("/")) {
+                                        temp = temp.substring(0, temp.indexOf("/"));
+                                    }
+                                } else if (temp.contains("/")) {
+                                    temp = temp.substring(0, temp.indexOf("/"));
+                                    if (temp.contains("^")) {
+                                        temp = temp.substring(0, temp.indexOf("^"));
+                                    }
+                                }
+                                if (temp.contains(".")) {
+                                    list.add("127.0.0.1 " + temp);
+                                }
+                            } else if (currentLine.contains("/")) {
+                                String temp = currentLine.substring(2, currentLine.indexOf("/"));
+                                if (temp.contains("*")) {
+                                    temp = temp.substring(0, temp.indexOf("*"));
+                                    if (temp.contains("^")) {
+                                        temp = temp.substring(0, temp.indexOf("^"));
+                                    }
+                                } else if (temp.contains("^")) {
+                                    temp = temp.substring(0, temp.indexOf("^"));
+                                    if (temp.contains("*")) {
+                                        temp = temp.substring(0, temp.indexOf("*"));
+                                    }
+                                }
+                                if (temp.contains(".")) {
+                                    list.add("127.0.0.1 " + temp);
+                                }
+                            } else {
+                                list.add("127.0.0.1 " + currentLine.substring(2));
                             }
                         }
                     }
@@ -159,6 +227,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                     currentTask.append(" Done\n");
                     progress += (100 / numberOfSources) - 1;
                     setProgress(progress);
+                    httpSource.disconnect();
                     bufferedReader.close();
                 }
             } catch (Exception e) {
@@ -206,10 +275,11 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                         System.out.println("Copying hosts file to the System...");
                         currentTask.append("Copying hosts file to the System...\n");
                         Runtime.getRuntime().exec("cp " + hostsPathMac + " " + privateEtc);
-                        Runtime.getRuntime().exec("rm " + hostsPathMac);
+//                        Runtime.getRuntime().exec("rm " + hostsPathMac);
                         System.out.println("Flushing DNS cache");
                         currentTask.append("Flushing DNS cache\n");
                         Runtime.getRuntime().exec("sudo killall -HUP mDNSResponder");
+                        Runtime.getRuntime().exec("sudo dscacheutil -flushcache");
                     }
                 }
                 //If Windows machine
