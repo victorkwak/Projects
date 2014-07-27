@@ -19,13 +19,12 @@ public class Fibonacci implements ActionListener{
         JFrame frame = new JFrame("Fibonacci");
         frame.setLayout(new FlowLayout());
         frame.setSize(400, 300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JButton calculate = new JButton("Calculate");
         calculate.addActionListener(this);
         JButton clear = new JButton("Clear");
         clear.addActionListener(this);
-
 
         JLabel n = new JLabel("n:");
 
