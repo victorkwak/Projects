@@ -3,10 +3,8 @@ Projects
 
 This repo contains some code that I've been working on for personal learning and curiosity as well as school projects required by the school.
 
-Personal
---------
-
 <a href="https://github.com/victorkwak/Projects/tree/master/Personal">Personal</a>
+----------------------------------------------------------------------------------
 
 **DailyProgrammer** contains problems posted to reddit's subreddit /r/dailyprogrammer.
 
@@ -16,8 +14,8 @@ Personal
 
 *In progress* - **NHLScraper** was inspired by an extra credit assignment in the Microeconomics class. The professor needed data for a research paper and asked the class to copy-paste data of specific players he provides onto Excel files. This process seemed to me to be highly prone to error, and so I thought I would try and make a program that would essentially do 200~ish man hours of work in a few seconds with less error. 
 
-School
-------
+<a href="https://github.com/victorkwak/Projects/tree/master/School">School</ka>
+------------------------------------------------------------------------------
 
 **FindBriefcase** is a class project - a game where you are a character (a ninja) that has sneaked into a building to steal the briefcase with the secret information, an item which is hidden in one of nine rooms.
 
