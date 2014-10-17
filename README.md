@@ -6,6 +6,8 @@ This repo contains some code that I've been working on for personal learning and
 Personal
 --------
 
+<a href="https://github.com/victorkwak/Projects/tree/master/Personal">Personal</a>
+
 **DailyProgrammer** contains problems posted to reddit's subreddit /r/dailyprogrammer.
 
 **Fibonacci** is a Fibonacci number generator. It features a GUI and generates numbers fairly quickly using a closed form solution of the usual Fibonacci recursive relation.
