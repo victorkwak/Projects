@@ -21,4 +21,4 @@ This repo contains some code that I've been working on for personal learning and
 
 **<a href="https://github.com/victorkwak/Projects/tree/master/School/NotePad/src">NotePad</a>** is an attempt at replicating Microsoft's NotePad that comes with Windows. 
 
-**<a href="https://github.com/victorkwak/Projects/tree/master/School/Hashing/src">Hashing</a>**, **<a href="https://github.com/victorkwak/Projects/tree/master/School/Set/src">Set</a>**, and **<a href="https://github.com/victorkwak/Projects/tree/master/School/Stack/src">Stack</a>** are data structure implementations.
+**<a href="https://github.com/victorkwak/Projects/tree/master/School/Data%20Structures">Data Structures</a>** contains data structure implementations.
