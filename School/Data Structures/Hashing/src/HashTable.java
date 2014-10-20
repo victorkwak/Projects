@@ -10,7 +10,7 @@ import java.util.Scanner;
  * The table is searchable by name (athlete) and will return their average score.
  * July 14, 2014
  */
-public class Project2 {
+public class HashTable {
     private static Entry[] scores = new Entry[50];
     private static int tableSize = 0;
     private static int collisions = 0;

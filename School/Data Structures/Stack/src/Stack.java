@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Stack;
 
 /**
  * Victor Kwak
@@ -12,7 +11,7 @@ import java.util.Stack;
  * expression. The program features a GUI and the user converts the expression by pressing either the
  * "Infix to Postfix" or the "Infix to Prefix" buttons.
  */
-public class Project3 extends JFrame implements ActionListener {
+public class Stack extends JFrame implements ActionListener {
     JButton postfix;
     JButton prefix;
     JTextField converted;
@@ -21,7 +20,7 @@ public class Project3 extends JFrame implements ActionListener {
     /**
      * Constructor (for GUI)
      */
-    public Project3() {
+    public Stack() {
         setTitle("Infix Converter");
         setLayout(new FlowLayout());
         setSize(300, 140);
@@ -127,7 +126,7 @@ public class Project3 extends JFrame implements ActionListener {
      */
     public String infixToPostfix(String infix) {
         infix = infix.replaceAll("\\s", "");
-        Stack<Character> stack = new Stack<Character>();
+        java.util.Stack<Character> stack = new java.util.Stack<Character>();
         String postFix = "";
         char temp;
         for (int i = 0; i < infix.length(); i++) {
@@ -167,8 +166,8 @@ public class Project3 extends JFrame implements ActionListener {
      */
     public String infixToPrefix(String infix) {
         infix = infix.replaceAll("\\s", "");
-        Stack<Character> operators = new Stack<Character>();
-        Stack<String> operands = new Stack<String>();
+        java.util.Stack<Character> operators = new java.util.Stack<Character>();
+        java.util.Stack<String> operands = new java.util.Stack<String>();
         String operator;
         String rightOperand;
         String leftOperand;
@@ -246,7 +245,7 @@ public class Project3 extends JFrame implements ActionListener {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Project3();
+                new Stack();
             }
         });
     }

@@ -8,7 +8,7 @@ import java.io.IOException;
  * Implement a Set ADT using a singly linked list
  * July 01, 2014
  */
-public class Project1 {
+public class SetDriver {
     private static String output = ""; // holds all information to be saved to output file.
 
     /**
