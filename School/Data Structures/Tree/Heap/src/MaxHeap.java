@@ -3,9 +3,7 @@ import java.util.Scanner;
 
 /**
  * Victor Kwak
- * CS241
- * (name of assignment here)
- * November 01, 2014
+ * MaxHeap
  */
 public class MaxHeap {
     private static int heap[];
