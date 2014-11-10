@@ -4,6 +4,8 @@ import java.util.Scanner;
 /**
  * Victor Kwak
  * MaxHeap
+ * Implement a max-heap. Heaps have the advantage of being complete binary trees and so the tree can be
+ * implemented in an array.
  */
 public class MaxHeap {
     private static int heap[];
@@ -18,7 +20,7 @@ public class MaxHeap {
 
     /**
      * Prints the menu for the program and takes user input.
-     * @return determines whether to exit program or not.
+     * @return whether to exit program or not.
      */
     public static boolean menu() {
         System.out.println("=====================================================================================\n\n");
@@ -50,7 +52,8 @@ public class MaxHeap {
 
     /**
      * Builds two heaps from random values using the 1 - 100 range. Once using the series of insertion method (O(nlogn))
-     * and the other, the optimal method (O(n)).
+     * and the other, the optimal method (O(n)). Keeps track of the number of swaps needed in order to build the heap
+     * and presents it to the user.
      */
     private static void random() {
         Random random = new Random();
@@ -60,7 +63,7 @@ public class MaxHeap {
         for (int i = 0; i < 20; i++) {
             heap = new int[100];
             for (int j = 0; j < 100; ) {
-                if (insert(1 + random.nextInt(100))) {
+                if (insert(1 + random.nextInt(100))) { //Generate random integer from 1 to 100.
                     swaps += reheapUp();
                     ++j;
                 }
@@ -73,7 +76,7 @@ public class MaxHeap {
         for (int i = 0; i < 20; i++) {
             heap = new int[100];
             for (int j = 0; j < 100; ) {
-                if (insert(1 + random.nextInt(100))) {
+                if (insert(1 + random.nextInt(100))) { //Generate random integer from 1 to 100.
                     ++j;
                 }
             }
@@ -84,7 +87,8 @@ public class MaxHeap {
 
     /**
      * Builds two heaps from fixed values from 1 - 100. Once using the series of insertion method (O(nlogn))
-     * and the other, the optimal method (O(n)).
+     * and the other, the optimal method (O(n)). Keeps track of the number of swaps needed in order to build the
+     * heap and presents it to the user.
      */
     private static void fixed() {
         int swaps = 0;
@@ -144,7 +148,7 @@ public class MaxHeap {
 
     /**
      * Used when inserting elements into the heap, the method will reheapify the from the bottom-up.
-     * @return
+     * @return number of swaps
      */
     private static int reheapUp() {
         int swaps = 0;
