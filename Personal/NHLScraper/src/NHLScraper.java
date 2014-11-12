@@ -42,6 +42,10 @@ public class NHLScraper {
         playersToFind.forEach(NHLScraper::searchForPlayer);
     }
 
+    /**
+     * Uses NHL's website's search to find player data.
+     * @param name
+     */
     public static void searchForPlayer(String name) {
         String[] namesSplit = name.split(" ");
         String url = "http://www.nhl.com/ice/search.htm?q=";

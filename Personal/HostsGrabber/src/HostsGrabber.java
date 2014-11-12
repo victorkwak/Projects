@@ -31,14 +31,18 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
     private int progress = 0;
     private String os;
 
-    private final String[] HOSTS_SOURCES = {"https://adaway.org/hosts.txt",
+    //Maintained hosts file lists
+    private final String[] HOSTS_SOURCES = {
+            "https://adaway.org/hosts.txt",
             "http://winhelp2002.mvps.org/hosts.txt",
             "http://hosts-file.net/ad_servers.asp",
             "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext",
             "http://someonewhocares.org/hosts/hosts",
             "http://www.malwaredomainlist.com/hostslist/hosts.txt"};
 
-    private final String[] ADBLOCK_SOURCES = {"http://www.fanboy.co.nz/fanboy-korean.txt",
+    //Lists used in Firefox's Adblock extension. These aren't in hosts file format.
+    private final String[] ADBLOCK_SOURCES = {
+            "http://www.fanboy.co.nz/fanboy-korean.txt",
             "https://easylist-downloads.adblockplus.org/easylist_noelemhide.txt"};
 
     /**
@@ -52,7 +56,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
             os = "Windows";
         }
 
-        setTitle("HostsGrabber");
+        setTitle("HostsGrabber - " + os);
         setLayout(new FlowLayout());
         setSize(400, 250);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -79,6 +83,9 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
         add(new JScrollPane(currentTask));
 
         setVisible(true);
+
+        JRootPane jRootPane = this.getRootPane();
+        jRootPane.setDefaultButton(start);
     }
 
     /**
@@ -157,6 +164,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                     Matcher matcher;
                     while ((currentLine = bufferedReader.readLine()) != null) {
                         if (currentLine.startsWith("!")) {
+                            //test merge/compare
                             if (currentLine.contains("License") ||
                                     currentLine.contains("Licence") ||
                                     currentLine.contains("Title") ||
