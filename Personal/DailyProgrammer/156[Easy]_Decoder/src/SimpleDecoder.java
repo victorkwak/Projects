@@ -20,33 +20,17 @@ public class SimpleDecoder {
             "tspmxip}$tsmrx$syx$xlimv$wspyxmsr$mw$mr$ivvsv$,xli}$evi$nywx$jspps{mrk$epsrk${mxlsyx$ors{mrk-\n" +
             "Irns}$xlmw$jyr2$Xli$xvyxl${mpp$fi$liph$f}$xlswi${ls$ger$higshi$xli$qiwweki2$>-";
 
-    public static void decoder(String message,int key, String operand) {
-        String[] split = message.split("\n");
-
-        char[][] splitChar = new char[split.length][];
-
-        if (operand.equals("+")) {
-            for (int i = 0; i < split.length; i++) {
-                splitChar[i] = split[i].toCharArray();
-                for (int j = 0; j < splitChar[i].length; j++) {
-                    splitChar[i][j] = (char) (splitChar[i][j] + key);
-                }
-                split[i] = new String(splitChar[i]);
-                System.out.println(split[i]);
-            }
-        } else if (operand.equals("-")) {
-            for (int i = 0; i < split.length; i++) {
-                splitChar[i] = split[i].toCharArray();
-                for (int j = 0; j < splitChar[i].length; j++) {
-                    splitChar[i][j] = (char) (splitChar[i][j] - key);
-                }
-                split[i] = new String(splitChar[i]);
-                System.out.println(split[i]);
+    public static void decoder(String message) {
+        for (int i = 0; i < message.length(); i++) {
+            if (message.charAt(i) == '\n') {
+                System.out.print('\n');
+            } else {
+                System.out.print((char) (message.charAt(i) - 4));
             }
         }
     }
 
     public static void main(String[] args) {
-        decoder(toBeDecoded, 4, "-");
+        decoder(toBeDecoded);
 	}
 }
