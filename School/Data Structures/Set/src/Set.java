@@ -6,7 +6,7 @@
  */
 public class Set <T>{
 
-    private Node<T> head; //dummy head 8 12
+    private Node<T> head; //dummy head
     private int size;
 
     /**

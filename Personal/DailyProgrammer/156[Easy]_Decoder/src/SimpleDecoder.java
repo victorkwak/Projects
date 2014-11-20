@@ -1,6 +1,6 @@
 /**
  * Name:        Kwak, Victor
- * Made:         April 02, 2014
+ * Made:        April 02, 2014
  * <p/>
  * Description: To honor our mistake this week's easy challenge is to decode a message.
  *              I have encoded a message by adding a "4" to each character's ASCII value.
@@ -8,7 +8,7 @@
  */
 
 public class SimpleDecoder {
-    private static String toBeDecoded = "Etvmp$Jsspw%%%%\n" +
+    private static final String toBeDecoded = "Etvmp$Jsspw%%%%\n" +
             "[e}$xs$ks%$]sy$lezi$wspzih$xli$lmhhir$qiwweki2$Rs{$mx$mw$}syv$xyvr$xs$nsmr\n" +
             "mr$sr$xlmw$tvero2$Hs$rsx$tswx$er}xlmrk$xlex${mpp$kmzi$e{e}$xlmw$qiwweki2$Pix\n" +
             "tistpi$higshi$xli$qiwweki$sr$xlimv$s{r$erh$vieh$xlmw$qiwweki2$]sy$ger$tpe}$epsrk\n" +
@@ -46,18 +46,7 @@ public class SimpleDecoder {
         }
     }
 
-    public static void classDecoder(String message) {
-        char[] splitChar = message.toCharArray();
-
-        for (int i = 0; i < splitChar.length; i++) {
-            switch (splitChar[i]) {
-
-            }
-        }
-    }
-
     public static void main(String[] args) {
         decoder(toBeDecoded, 4, "-");
-        classDecoder("something");
 	}
 }
