@@ -115,9 +115,9 @@ public class Blackjack {
         }
         System.out.println("Number of hands: " + (int) numberOfHands);
         System.out.println("Number of blackjacks: " + (int) numberOfBlackjacks);
-        DecimalFormat decimalFormat = new DecimalFormat("#.#");
+        DecimalFormat decimalFormat = new DecimalFormat("#.#%");
         decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
         System.out.println("Blackjack Percentage: " +
-                decimalFormat.format((numberOfBlackjacks / numberOfHands) * 100) + "%");
+                decimalFormat.format((numberOfBlackjacks / numberOfHands)));
     }
 }
