@@ -51,7 +51,7 @@ abstract public class Objects implements Serializable {
      * @return
      */
     public int getX() {
-        return this.x;
+        return x;
     }
 
     /**
@@ -60,6 +60,6 @@ abstract public class Objects implements Serializable {
      * @return
      */
     public int getY() {
-        return this.y;
+        return y;
     }
 }

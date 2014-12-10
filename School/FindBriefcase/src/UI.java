@@ -51,7 +51,7 @@ public class UI {
         engine.setPlayerCoords(0, 8);
         engine.setBriefcaseCoords();
         engine.setBulletCoords();
-        engine.setNinjaCoords();
+        engine.setNinjaCoordinates();
         engine.setRadarCoords();
         engine.setShieldCoords();
         engine.radarTripped = false;
@@ -344,8 +344,6 @@ public class UI {
             oos.writeObject(engine);
             oos.close();
             fos.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -361,11 +359,7 @@ public class UI {
             engine = (Engine) ois.readObject();
             ois.close();
             fis.close();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
     }

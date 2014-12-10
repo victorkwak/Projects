@@ -42,7 +42,6 @@ public class Engine implements Serializable {
     boolean radarTripped;
     private int playerLives = 3;
     private int shieldTurns = 6;
-    private boolean win;
     private boolean gameLoopBool;
     private int numChar;
 
@@ -101,7 +100,7 @@ public class Engine implements Serializable {
      * Sets the X and Y coordinates of the six ninjas at random at the beginning of the game,
      * then places it at those coordinates on the empty grid created by makeEmptyMap() method.
      */
-    public void setNinjaCoords() {
+    public void setNinjaCoordinates() {
         int x;
         int y;
         do {
@@ -241,11 +240,7 @@ public class Engine implements Serializable {
      */
 
     public boolean checkConflicts(int x, int y) {
-        if (grid.getobjAt(x, y).getClass().equals(empty.getClass())) {
-            return true;
-        } else {
-            return false;
-        }
+        return grid.getobjAt(x, y).getClass().equals(empty.getClass());
     }
 
     /**
@@ -258,15 +253,7 @@ public class Engine implements Serializable {
      */
 
     public boolean checkNinja(int x, int y) {
-        if (y > 4 && x > 4
-                && grid.getobjAt(x, y).getClass().equals(empty.getClass())) {
-            return true;
-
-        } else if (y < 4
-                && grid.getobjAt(x, y).getClass().equals(empty.getClass())) {
-            return true;
-        } else
-            return false;
+        return y > 4 && x > 4 && grid.getobjAt(x, y).getClass().equals(empty.getClass()) || y < 4 && grid.getobjAt(x, y).getClass().equals(empty.getClass());
     }
 
     /**
@@ -328,11 +315,8 @@ public class Engine implements Serializable {
         int plusTwo;
         String dir;
         boolean downDir;
-        downDir = false;
         playerX = player.getX();
         playerY = player.getY();
-        plusOne = 0;
-        plusTwo = 0;
         printSymbLine("=");
         switch (direction) {
             case 'W':
@@ -340,14 +324,14 @@ public class Engine implements Serializable {
                 plusOne = playerY - 1;
                 plusTwo = playerY - 2;
                 dir = "ahead of";
-                checkForYItem(dir, playerX, plusOne, plusTwo, downDir);
+                checkForYItem(dir, playerX, plusOne, plusTwo);
                 break;
             case 'A':
                 System.out.println("You look LEFT");
                 plusOne = playerX - 1;
                 plusTwo = playerX - 2;
                 dir = "left of";
-                checkForXItem(dir, playerY, plusOne, plusTwo, downDir);
+                checkForXItem(dir, playerY, plusOne, plusTwo);
                 break;
             case 'S':
                 System.out.println("You look DOWN");
@@ -355,14 +339,14 @@ public class Engine implements Serializable {
                 plusTwo = playerY + 2;
                 dir = "behind";
                 downDir = true;
-                checkForYItem(dir, playerX, plusOne, plusTwo, downDir);
+                checkForYItem(dir, playerX, plusOne, plusTwo);
                 break;
             case 'D':
                 System.out.println("You look RIGHT");
                 plusOne = playerX + 1;
                 plusTwo = playerX + 2;
                 dir = "right of";
-                checkForXItem(dir, playerY, plusOne, plusTwo, downDir);
+                checkForXItem(dir, playerY, plusOne, plusTwo);
                 break;
             default:
                 break;
@@ -378,11 +362,9 @@ public class Engine implements Serializable {
      * @param playerXCoord The player's current X coordinate.
      * @param lookYOneSp   One space ahead of the player's look direction.
      * @param lookYTwoSp   Two spaces ahead of the player's look direction.
-     * @param downDir      Check if the player is looking down or not, as rooms can only be opened from
-     *                     "above"
      */
     public void checkForYItem(String dirName, int playerXCoord, int lookYOneSp,
-                              int lookYTwoSp, boolean downDir) {
+                              int lookYTwoSp) {
         int xCoord;
         String dirWord;
         String itemName;
@@ -412,7 +394,7 @@ public class Engine implements Serializable {
                 System.out.println("You can't look " + spaceNum + " " + space
                         + " " + dirWord + " you.");
             } else {
-                itemName = checkItemType(xCoord, spaces[i], downDir);
+                itemName = checkItemType(xCoord, spaces[i]);
                 System.out.println("There is " + itemName + " " + spaceNum
                         + " " + space + " " + dirWord + " you.");
             }
@@ -428,11 +410,9 @@ public class Engine implements Serializable {
      * @param playerYCoord The player's current Y coordinate.
      * @param lookXOneSp   One space ahead of the player's look direction.
      * @param lookXTwoSp   Two spaces ahead of the player's look direction.
-     * @param downDir      Check if the player is looking down or not, as rooms can only be opened from
-     *                     "above"
      */
     public void checkForXItem(String dirName, int playerYCoord, int lookXOneSp,
-                              int lookXTwoSp, boolean downDir) {
+                              int lookXTwoSp) {
         int yCoord;
         String dirWord;
         String itemName;
@@ -462,7 +442,7 @@ public class Engine implements Serializable {
                 System.out.println("You can't look " + spaceNum + " " + space
                         + " " + dirWord + " you.");
             } else {
-                itemName = checkItemType(spaces[i], yCoord, downDir);
+                itemName = checkItemType(spaces[i], yCoord);
                 System.out.println("There is " + itemName + " " + (i + 1) + " "
                         + space + " " + dirWord + " you.");
             }
@@ -476,21 +456,18 @@ public class Engine implements Serializable {
      *
      * @param x       X coordinate
      * @param y       Y coordinate
-     * @param downDir boolean to see if looking down
      * @return string representing item.
      */
-    public String checkItemType(int x, int y, boolean downDir) {
+    public String checkItemType(int x, int y) {
         String bulletName;
         String shieldName;
         String radarName;
-        String roomName;
         String doorName;
         String ninjaName;
         String emptyName;
         bulletName = "a bullet";
         shieldName = "a shield";
         radarName = "a radar";
-        roomName = "a room";
         doorName = "a door";
         ninjaName = "a ninja";
         emptyName = "nothing";
@@ -502,11 +479,7 @@ public class Engine implements Serializable {
             return radarName;
         } else if (grid.getobjAt(x, y).getClass().equals(room.getClass())
                 || grid.getobjAt(x, y).getClass().equals(briefcase.getClass())) {
-            if (downDir) {
-                return doorName;
-            } else {
-                return roomName;
-            }
+            return doorName;
         } else if (grid.getobjAt(x, y).getClass().equals(ninja.getClass())) {
             return ninjaName;
         } else {
@@ -564,12 +537,12 @@ public class Engine implements Serializable {
     public boolean movePlayer(char direction) {
         int x;
         int y;
-        int tempx;
-        int tempy;
+        int tempX;
+        int tempY;
         x = player.getX();
         y = player.getY();
-        tempx = x;
-        tempy = y;
+        tempX = x;
+        tempY = y;
         printSymbLine("=");
         switch (direction) {
             case 'W':
@@ -599,7 +572,7 @@ public class Engine implements Serializable {
             return false;
         } else {
             setPlayerCoords(x, y);
-            grid.placeEmpty(tempx, tempy, empty);
+            grid.placeEmpty(tempX, tempY, empty);
             return true;
         }
 
@@ -695,13 +668,7 @@ public class Engine implements Serializable {
      * @return true (they can) or false (they can't)
      */
     public boolean checkValidNinjaMove(int x, int y) {
-        if (y < 0 || y > 8 || x < 0 || x > 8) {
-            return false;
-        } else if (!grid.getobjAt(x, y).getClass().equals(empty.getClass())) {
-            return false;
-        } else {
-            return true;
-        }
+        return !(y < 0 || y > 8 || x < 0 || x > 8) && grid.getobjAt(x, y).getClass().equals(empty.getClass());
     }
 
     /**
@@ -791,21 +758,10 @@ public class Engine implements Serializable {
         x = currentNinja.getX();
         y = currentNinja.getY();
 
-        if ((y + 1 < 9)
-                && grid.getobjAt(x, y + 1).getClass().equals(player.getClass())) {
-            playerNearby = true;
-        } else if ((y - 1 >= 0)
-                && grid.getobjAt(x, y - 1).getClass().equals(player.getClass())) {
-            playerNearby = true;
-        } else if ((x + 1 < 9)
-                && grid.getobjAt(x + 1, y).getClass().equals(player.getClass())) {
-            playerNearby = true;
-        } else if ((x - 1 >= 0)
-                && grid.getobjAt(x - 1, y).getClass().equals(player.getClass())) {
-            playerNearby = true;
-        } else {
-            playerNearby = false;
-        }
+        playerNearby = (y + 1 < 9) && grid.getobjAt(x, y + 1).getClass().equals(player.getClass())
+                || (y - 1 >= 0) && grid.getobjAt(x, y - 1).getClass().equals(player.getClass())
+                || (x + 1 < 9) && grid.getobjAt(x + 1, y).getClass().equals(player.getClass())
+                || (x - 1 >= 0) && grid.getobjAt(x - 1, y).getClass().equals(player.getClass());
         return playerNearby;
     }
 

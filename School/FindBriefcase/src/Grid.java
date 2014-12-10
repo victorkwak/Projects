@@ -14,12 +14,10 @@
  *   Tristan Warner
  */
 
-import java.io.Serializable;
-
 /**
  * The Grid class makes and draws the map of the game.
  */
-public class Grid implements Serializable {
+public class Grid{
     Briefcase briefcase = new Briefcase();
     Bullet bullet = new Bullet();
     Empty empty = new Empty();
@@ -29,7 +27,7 @@ public class Grid implements Serializable {
     Room room = new Room();
     Shield shield = new Shield();
 
-    Objects map[][] = new Objects[9][9];//Array of type "Objects"
+    Objects map[][] = new Objects[9][9];
 
     /**
      * Generates the initial blank map
@@ -89,9 +87,9 @@ public class Grid implements Serializable {
 
     public void printMap() {
 
-        for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[0].length; j++) {
-                System.out.print(map[i][j]);
+        for (Objects[] x : map) {
+            for (Objects y : x) {
+                System.out.print(y);
             }
             System.out.println();
         }
