@@ -11,8 +11,7 @@ required by the school.
 contains problems posted to reddit's subreddit /r/dailyprogrammer.
 
 **<a href="https://github.com/victorkwak/Projects/tree/master/Personal/Fibonacci/src">Fibonacci</a>** is a Fibonacci
-number generator. It features a GUI and generates numbers fairly quickly using a closed form solution of the usual
-Fibonacci recursive relation.
+number generator. It features a GUI and generates numbers quickly using a fast doubling recursive method.
 
 **<a href="https://github.com/victorkwak/Projects/tree/master/Personal/HostsGrabber/src">HostsGrabber**</a> features
 a GUI and grabs ad-server lists from multiple sources and compiles the lists into one, removing duplicate entries while
