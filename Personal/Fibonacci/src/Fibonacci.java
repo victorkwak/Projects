@@ -1,25 +1,28 @@
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.text.DecimalFormat;
 
 /**
- * Fibonacci number generator. GUI takes n input and outputs nth Fibonacci number. Uses closed form Binet's formula
- * using an approximation of phi.
+ * Fibonacci number generator. GUI takes n input and outputs nth Fibonacci number. Uses fast doubling method.
+ * Previously used Binet's formula using constant values for phi. Turns out, that's really slow compared to this.
  */
 public class Fibonacci implements ActionListener {
 
-    private static String output;
-    private static JTextArea outputField = new JTextArea();
-    private static JTextField inputField = new JTextField(10);
+    private String output; // Calculated value
+    private JTextArea outputField = new JTextArea(); // Numbers get big. Big Field to output text to.
+    private JTextField inputField = new JTextField(10); // Where you input n
+    private JTextField timeOutput = new JTextField(6); // Shows time taken to calculate
 
     Fibonacci() {
         // Frame
         JFrame frame = new JFrame("Fibonacci");
         frame.setLayout(new FlowLayout());
-        frame.setSize(400, 250);
+        frame.setSize(470, 250);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         //Buttons
@@ -30,25 +33,29 @@ public class Fibonacci implements ActionListener {
 
         //Label
         JLabel n = new JLabel("n:");
+        JLabel timeTaken = new JLabel("Time Taken:");
 
-        //Configure output box
+
+        // Calculation output
         outputField.setLineWrap(true);
-        outputField.setColumns(30);
+        outputField.setColumns(40);
         outputField.setRows(10);
         outputField.setEditable(false);
         outputField.setWrapStyleWord(true);
+        timeOutput.setEditable(false);
         JScrollPane sPane = new JScrollPane(outputField);
         frame.add(sPane);
 
-        // "other" contains everything besides the outputField. If buttons are just added to the frame, scaling
-        // becomes kind of weird.
-        JPanel other = new JPanel();
-        other.add(n);
-        other.add(inputField);
-        other.add(calculate);
-        other.add(clear);
-        frame.add(other);
+        // "input" contains input fields.
+        JPanel input = new JPanel();
+        input.add(n);
+        input.add(inputField);
+        input.add(calculate);
+        input.add(clear);
+        input.add(timeTaken);
+        input.add(timeOutput);
 
+        frame.add(input);
         frame.setVisible(true);
 
         // Default Button
@@ -60,72 +67,66 @@ public class Fibonacci implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Calculate")) { // Press "Calculate" button
+            double startTime = System.nanoTime();
             fib(inputField.getText());
+            double calcTime = (System.nanoTime() - startTime) / 1000000000;
+            DecimalFormat decimalFormat = new DecimalFormat("##0.00000");
+            String timeTaken = decimalFormat.format(calcTime) + "s";
+            timeOutput.setText(timeTaken);
             outputField.setText(output);
 
         } else { // Press "Clear" button
             outputField.setText("");
             inputField.setText("");
+            timeOutput.setText("");
         }
     }
 
-    public static void fib(String in) {
-        BigDecimal phi;
-
-        if (in.equals("0") || in.equals("1")) {
-            output = in;
-        } else {
-            // tiered phi values
-            if (Integer.parseInt(in) <= 200) {
-                phi = new BigDecimal("1.61803398874989484820458683436563811772030917980576");
-            } else if (Integer.parseInt(in) <= 400) {
-                phi = new BigDecimal("1.61803398874989484820458683436563811772030917980576" +
-                        "28621354486227052604628189024497072072041893911374");
-            } else if (Integer.parseInt(in) < 600) {
-                phi = new BigDecimal("1.61803398874989484820458683436563811772030917980576" +
-                        "28621354486227052604628189024497072072041893911374" +
-                        "84754088075386891752126633862223536931793180060766");
-            } else if (Integer.parseInt(in) < 900) {
-                phi = new BigDecimal("1.61803398874989484820458683436563811772030917980576" +
-                        "28621354486227052604628189024497072072041893911374" +
-                        "84754088075386891752126633862223536931793180060766" +
-                        "72635443338908659593958290563832266131992829026788");
-            } else if (Integer.parseInt(in) < 1100) {
-                phi = new BigDecimal("1.61803398874989484820458683436563811772030917980576" +
-                        "28621354486227052604628189024497072072041893911374" +
-                        "84754088075386891752126633862223536931793180060766" +
-                        "72635443338908659593958290563832266131992829026788" +
-                        "06752087668925017116962070322210432162695486262963");
-            } else if (Integer.parseInt(in) < 1500) {
-                phi = new BigDecimal("1.61803398874989484820458683436563811772030917980576" +
-                        "28621354486227052604628189024497072072041893911374" +
-                        "84754088075386891752126633862223536931793180060766" +
-                        "72635443338908659593958290563832266131992829026788" +
-                        "06752087668925017116962070322210432162695486262963" +
-                        "13614438149758701220340805887954454749246185695364" +
-                        "86444924104432077134494704956584678850987433944221");
-
+    public void fib(String in) {
+        if (in.matches("\\d+")) {
+            if (in.equals("0") || in.equals("1")) {
+                output = in;
             } else {
-                phi = new BigDecimal("1.61803398874989484820458683436563811772030917980576" +
-                        "28621354486227052604628189024497072072041893911374" +
-                        "84754088075386891752126633862223536931793180060766" +
-                        "72635443338908659593958290563832266131992829026788" +
-                        "06752087668925017116962070322210432162695486262963" +
-                        "13614438149758701220340805887954454749246185695364" +
-                        "86444924104432077134494704956584678850987433944221" +
-                        "25448770664780915884607499887124007652170575179788" +
-                        "34166256249407589069704000281210427621771117778053" +
-                        "15317141011704666599146697987317613560067087480710" +
-                        "131795236894275219484353056783002287856997829");
+                BigInteger[] tuple = fib(Integer.parseInt(in));
+                output = tuple[0].toString();
             }
-            BigDecimal psi = BigDecimal.ONE.subtract(phi); //Recipricol of phi
-            BigDecimal value = //Binets Formula
-                    (phi.pow(Integer.parseInt(in)).subtract(psi.pow(Integer.parseInt(in)))).divide(phi.subtract(psi));
+        } else {
+            output = "Invalid input. Please enter an integer.";
+        }
+    }
 
-            DecimalFormat decimalFormat = new DecimalFormat();
-            decimalFormat.setMaximumFractionDigits(0); // No decimals
-            decimalFormat.setGroupingUsed(false);
-            output = decimalFormat.format(value);
+    /**
+     * Given f(k) and f(k + 1)
+     * f(2k) = f(k)[2f(k + 1) - f(k)]
+     * f(2k + 1) = f(k + 1)^2 + f(k)^2
+     * @param n fibonacci to generate
+     * @return tuple with f(x) and f(x + 1)
+     */
+    private BigInteger[] fib(int n) {
+        BigInteger[] tuple = new BigInteger[2];
+        if (n <= 0) {
+            tuple[0] = BigInteger.ZERO;
+            tuple[1] = BigInteger.ONE;
+            return tuple;
+        }
+        if (n == 1) {
+            tuple[0] = BigInteger.ONE;
+            tuple[1] = BigInteger.ONE;
+            return tuple;
+        }
+        BigInteger[] ab = fib(n / 2);
+        BigInteger a = ab[0];
+        BigInteger b = ab[1];
+        BigInteger c = a.multiply((BigInteger.valueOf(2).multiply(b)).subtract(a));
+        BigInteger d = (a.multiply(a)).add((b.multiply(b)));
+        if (n % 2 == 0) {
+            tuple[0] = c;
+            tuple[1] = d;
+            return tuple;
+        } else {
+            tuple[0] = d;
+            tuple[1] = c.add(d);
+            return tuple;
         }
     }
 

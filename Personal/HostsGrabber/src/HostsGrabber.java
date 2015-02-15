@@ -15,8 +15,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Victor Kwak - 2014
@@ -160,11 +158,8 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                     httpSource.connect();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpSource.getInputStream()));
                     String currentLine;
-                    Pattern pattern = Pattern.compile("\\d");
-                    Matcher matcher;
                     while ((currentLine = bufferedReader.readLine()) != null) {
                         if (currentLine.startsWith("!")) {
-                            //test merge/compare
                             if (currentLine.contains("License") ||
                                     currentLine.contains("Licence") ||
                                     currentLine.contains("Title") ||
@@ -183,7 +178,6 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                         }
 
                         if (useSection && currentLine.startsWith("||")) {
-
                             if (currentLine.contains("^")) {
                                 String temp = currentLine.substring(2, currentLine.indexOf("^"));
                                 if (temp.contains("*")) {

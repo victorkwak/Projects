@@ -103,7 +103,7 @@ public class Djikstra {
             return;
         }
 
-        queue = new ArrayList<Integer>();
+        queue = new ArrayList<>();
         int[] previous = new int[graph.length];
         distance = new double[graph.length];
 
