@@ -17,6 +17,7 @@ public class Fibonacci implements ActionListener {
     private JTextArea outputField = new JTextArea(); // Numbers get big. Big Field to output text to.
     private JTextField inputField = new JTextField(10); // Where you input n
     private JTextField timeOutput = new JTextField(6); // Shows time taken to calculate
+    private final BigInteger TWO = BigInteger.valueOf(2);
 
     Fibonacci() {
         // Frame
@@ -117,7 +118,7 @@ public class Fibonacci implements ActionListener {
         BigInteger[] ab = fib(n / 2);
         BigInteger a = ab[0];
         BigInteger b = ab[1];
-        BigInteger c = a.multiply((BigInteger.valueOf(2).multiply(b)).subtract(a));
+        BigInteger c = a.multiply((TWO.multiply(b)).subtract(a));
         BigInteger d = (a.multiply(a)).add((b.multiply(b)));
         if (n % 2 == 0) {
             tuple[0] = c;
