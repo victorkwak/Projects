@@ -26,8 +26,12 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
     private JProgressBar jProgressBar;
     private JTextArea currentTask;
     private JButton start;
-    private int progress = 0;
+    private JButton cancel;
+    private int progress;
     private String os;
+    private String version;
+    private JPasswordField passwordField;
+    private GetHosts getHosts;
 
     //Maintained hosts file lists
     private final String[] HOSTS_SOURCES = {
@@ -46,31 +50,35 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
     /**
      * Determines OS and builds GUI
      */
-    public HostsGrabber() {
+    private HostsGrabber() {
         os = System.getProperty("os.name");
-        if (System.getProperty("os.name").contains("Mac")) {
-            os = "Mac";
-        } else if (System.getProperty("os.name").contains("Windows")) {
-            os = "Windows";
-        }
+        version = System.getProperty("os.version");
 
-        setTitle("HostsGrabber - " + os);
+        setTitle("HostsGrabber");
         setLayout(new FlowLayout());
-        setSize(400, 250);
+        setSize(400, 280);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
+        JLabel password = new JLabel("Password:");
+        add(password);
+        passwordField = new JPasswordField(20);
+        add(passwordField);
         JLabel instructions = new JLabel("      Press \"Start\" to begin.");
         add(instructions);
 
         start = new JButton("Start");
         start.addActionListener(this);
         add(start);
+        cancel = new JButton("Cancel");
+        cancel.addActionListener(this);
+        add(cancel);
+        cancel.setEnabled(false);
 
         jProgressBar = new JProgressBar(0, 100);
         Dimension progressBarSize = jProgressBar.getPreferredSize();
         progressBarSize.width = 250;
         jProgressBar.setPreferredSize(progressBarSize);
-        jProgressBar.setValue(0);
         add(jProgressBar);
 
         currentTask = new JTextArea(8, 30);
@@ -79,17 +87,21 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
         DefaultCaret defaultCaret = (DefaultCaret) currentTask.getCaret();
         defaultCaret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         add(new JScrollPane(currentTask));
+        currentTask.append("You are running " + os + " " + version + "\n");
 
         setVisible(true);
 
         JRootPane jRootPane = this.getRootPane();
         jRootPane.setDefaultButton(start);
+
+        getHosts = new GetHosts();
+        getHosts.addPropertyChangeListener(this);
     }
 
     /**
      * Nested class provides main function of the program. Will run in a background thread.
      */
-    class GetHosts extends SwingWorker<Void, Void> {
+    private class GetHosts extends SwingWorker<Void, Void> {
 
         public Set<String> generateList() {
             Set<String> list = new LinkedHashSet<>();
@@ -107,9 +119,10 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
          * @param SOURCES         These sources are already in hosts file format and can be used directly.
          * @param numberOfSources The sum of all regular hosts and AdBlock sources. Used for progressbar incrementation.
          */
-        public void hostsList(Set<String> list, String[] SOURCES, int numberOfSources) {
+        private void hostsList(Set<String> list, String[] SOURCES, int numberOfSources) {
             System.out.println("Getting hosts files...");
             currentTask.append("Getting hosts files...\n");
+            progress = 0;
             try {
                 for (String e : SOURCES) {
                     System.out.print("    " + e + "...");
@@ -141,7 +154,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
          * @param SOURCES         Array of AdBlock sources
          * @param numberOfSources The sum of all regular hosts and AdBlock sources. Used for progressbar incrementation.
          */
-        public void adBlockList(Set<String> list, String[] SOURCES, int numberOfSources) {
+        private void adBlockList(Set<String> list, String[] SOURCES, int numberOfSources) {
             System.out.println("Getting AdBlock lists...");
             currentTask.append("Getting AdBlock lists...\n");
             try {
@@ -176,7 +189,6 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                                 useSection = false;
                             }
                         }
-
                         if (useSection && currentLine.startsWith("||")) {
                             if (currentLine.contains("^")) {
                                 String temp = currentLine.substring(2, currentLine.indexOf("^"));
@@ -243,7 +255,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
             }
         }
 
-        public String generateComments() {
+        private String generateComments() {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
             String comments = "# ==================================================================================\n" +
                     "# The following list was built from the these sources on " +
@@ -259,7 +271,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
             return comments;
         }
 
-        public void writeHostsFile(Set<String> compiledList) {
+        private void writeHostsFile(Set<String> compiledList) {
             Path currentPath = Paths.get("");
             String absolutePath = currentPath.toAbsolutePath().toString();
 
@@ -276,18 +288,27 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
 
             try {
                 //If OS X machine
-                if (System.getProperty("os.name").contains("Mac")) {
+                if (os.contains("Mac")) {
                     Path hostsPathMac = Paths.get(absolutePath + "/hosts");
                     Path privateEtc = Paths.get("/private/etc");
+                    String flush = "";
+                    // Different ways for flushing DNS cache for different versions of OS X.
+                    if (version.contains("10.10")) {
+                        flush = " && discoveryutil mdnsflushcache";
+                    } else if (version.contains("10.9") || version.contains("10.8") || version.contains("10.7")) {
+                        flush = " && killall -HUP mDNSResponder";
+                    } else if (version.contains("10.6")) {
+                        flush = " && dscacheutil -flushcache";
+                    }
                     if (Files.isReadable(hostsPathMac)) {
                         System.out.println("Copying hosts file to the System...");
                         currentTask.append("Copying hosts file to the System...\n");
-                        Runtime.getRuntime().exec("cp " + hostsPathMac + " " + privateEtc);
-//                        Runtime.getRuntime().exec("rm " + hostsPathMac);
-                        System.out.println("Flushing DNS cache");
-                        currentTask.append("Flushing DNS cache\n");
-                        Runtime.getRuntime().exec("sudo killall -HUP mDNSResponder");
-                        Runtime.getRuntime().exec("sudo dscacheutil -flushcache");
+                        System.out.println("Flushing DNS cache...");
+                        currentTask.append("Flushing DNS cache...\n");
+                        String password = new String(passwordField.getPassword());
+                        String[] commands = {"/bin/bash", "-c",
+                                "echo " + password + " | sudo -S cp " + hostsPathMac + " " + privateEtc + flush};
+                        Runtime.getRuntime().exec(commands);
                     }
                 }
                 //If Windows machine
@@ -306,18 +327,19 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
         }
 
         @Override
-        public Void doInBackground() throws Exception {
+        protected Void doInBackground() throws Exception {
             setProgress(0);
             writeHostsFile(generateList());
             return null;
         }
 
         @Override
-        public void done() {
+        protected void done() {
             start.setEnabled(true);
             setProgress(100);
             System.out.println("Done!");
             currentTask.append("Done!\n");
+            passwordField.setEditable(true);
         }
     }
 
@@ -328,10 +350,21 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
-        start.setEnabled(false);
-        GetHosts getHosts = new GetHosts();
-        getHosts.addPropertyChangeListener(this);
-        getHosts.execute();
+        if (ae.getActionCommand().equals("Start")) {
+            if (verifyPassword(new String(passwordField.getPassword()))) {
+                passwordField.setEditable(false);
+                start.setEnabled(false);
+                cancel.setEnabled(true);
+                getHosts.execute();
+            } else {
+                currentTask.append("Incorrect password.\n");
+            }
+
+        } else if (ae.getActionCommand().equals("Cancel")) {
+            getHosts.cancel(false);
+            cancel.setEnabled(false);
+            start.setEnabled(true);
+        }
     }
 
     /**
@@ -344,6 +377,26 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
         if (evt.getPropertyName().equals("progress")) {
             jProgressBar.setValue((Integer) evt.getNewValue());
         }
+    }
+
+    private boolean verifyPassword(String password) {
+        boolean working = false;
+        String[] commands = {"/bin/bash", "-c",
+                "echo " + password + " | sudo -S echo working"};
+        try {
+            Process vPass = Runtime.getRuntime().exec(commands);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(vPass.getInputStream()));
+            String currentLine;
+            while ((currentLine = bufferedReader.readLine()) != null) {
+                if (currentLine.equals("working")) {
+                    working = true;
+                }
+            }
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return working;
     }
 
     public static void main(String[] args) {

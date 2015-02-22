@@ -1,5 +1,3 @@
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -47,16 +45,16 @@ public class Fibonacci implements ActionListener {
         JScrollPane sPane = new JScrollPane(outputField);
         frame.add(sPane);
 
-        // "input" contains input fields.
-        JPanel input = new JPanel();
-        input.add(n);
-        input.add(inputField);
-        input.add(calculate);
-        input.add(clear);
-        input.add(timeTaken);
-        input.add(timeOutput);
+        // separate components panel for scaling
+        JPanel components = new JPanel();
+        components.add(n);
+        components.add(inputField);
+        components.add(calculate);
+        components.add(clear);
+        components.add(timeTaken);
+        components.add(timeOutput);
 
-        frame.add(input);
+        frame.add(components);
         frame.setVisible(true);
 
         // Default Button
