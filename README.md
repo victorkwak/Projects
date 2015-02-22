@@ -15,10 +15,10 @@ number generator. It features a GUI and generates numbers quickly using a fast d
 
 **<a href="https://github.com/victorkwak/Projects/tree/master/Personal/HostsGrabber/src">HostsGrabber**</a> features
 a GUI and grabs ad-server lists from multiple sources and compiles the lists into one, removing duplicate entries while
-maintaining the original authors' comments. Altering one's hosts file is a great alternative to using ad-blocking
-extensions, as ad-blocking extensions can use a lot of additional system resources while the hosts file method
+maintaining the original authors' comments. Altering one's hosts file is a nice alternative to using ad-blocking
+extensions as ad-blocking extensions can use a lot of additional system resources while the hosts file method
 uses minimal resources. The program only applies the file automatically to the system in OS X and Unix systems
-only at the moment.
+only at the moment, and requires a sudo password in order to update the system's hosts file.
 
 *In progress* - **<a href="https://github.com/victorkwak/Projects/tree/master/Personal/NHLScraper/src">NHLScraper</a>**
 was inspired by an extra credit assignment in the Microeconomics class. The professor needed data for a research paper
