@@ -26,7 +26,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
     private JProgressBar jProgressBar;
     private JTextArea currentTask;
     private JButton start;
-    private JButton cancel;
+//    private JButton cancel;
     private int progress;
     private String os;
     private String version;
@@ -70,10 +70,10 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
         start = new JButton("Start");
         start.addActionListener(this);
         add(start);
-        cancel = new JButton("Cancel");
-        cancel.addActionListener(this);
-        add(cancel);
-        cancel.setEnabled(false);
+//        cancel = new JButton("Cancel");
+//        cancel.addActionListener(this);
+//        add(cancel);
+//        cancel.setEnabled(false);
 
         jProgressBar = new JProgressBar(0, 100);
         Dimension progressBarSize = jProgressBar.getPreferredSize();
@@ -354,18 +354,19 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
             if (verifyPassword(new String(passwordField.getPassword()))) {
                 passwordField.setEditable(false);
                 start.setEnabled(false);
-                cancel.setEnabled(true);
+//                cancel.setEnabled(true);
                 getHosts.execute();
             } else {
                 currentTask.append("Incorrect password.\n");
             }
-
-        } else if (ae.getActionCommand().equals("Cancel")) {
-            getHosts.cancel(false);
-            cancel.setEnabled(false);
-            start.setEnabled(true);
         }
+//         else if (ae.getActionCommand().equals("Cancel")) {
+//            getHosts.cancel(false);
+//            cancel.setEnabled(false);
+//            start.setEnabled(true);
+//        }
     }
+
 
     /**
      * Used for updating progress bar and statements.
