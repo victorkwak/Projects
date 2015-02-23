@@ -131,7 +131,8 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(sourceURL.openStream()));
                     String currentLine;
                     while ((currentLine = bufferedReader.readLine()) != null) {
-                        if (currentLine.matches("\\s*#.*") ||
+                        if (currentLine.equals("") ||
+                                currentLine.matches("\\s*#.*") ||
                                 currentLine.contains("localhost") ||
                                 currentLine.contains("broadcasthost")) {
                             list.add(currentLine);
@@ -140,9 +141,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                         } else if (currentLine.matches("0\\.0\\.0\\.0.+")) {
                             list.add("0 " + currentLine.substring(7));
                         } else {
-                            if (!currentLine.equals("")) {
-                                System.out.println(currentLine);
-                            }
+                            System.out.println(currentLine);
                         }
                     }
                     System.out.print(" Done\n");
@@ -269,8 +268,8 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
 
         private String generateComments() {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
-            String comments = "# ==================================================================================\n" +
-                    "# The following list was built using HostsGrabber from the following sources:" +
+            String comments = "# ============================================================================================\n" +
+                    "# The following list was built using HostsGrabber from the following sources on " +
                     simpleDateFormat.format(Calendar.getInstance().getTime()) + ":\n\n";
             for (String e : HOSTS_SOURCES) {
                 comments += "# " + e + "\n";
@@ -279,7 +278,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                 comments += "# " + e + "\n";
             }
             comments += "\n" +
-                    "# ==================================================================================\n\n";
+                    "# ============================================================================================\n\n";
             return comments;
         }
 
