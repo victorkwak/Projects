@@ -26,7 +26,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
     private JProgressBar jProgressBar;
     private JTextArea currentTask;
     private JButton start;
-//    private JButton cancel;
+    //    private JButton cancel;
     private int progress;
     private String os;
     private String version;
@@ -131,7 +131,19 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(sourceURL.openStream()));
                     String currentLine;
                     while ((currentLine = bufferedReader.readLine()) != null) {
-                        list.add(currentLine);
+                        if (currentLine.matches("\\s*#.*") ||
+                                currentLine.contains("localhost") ||
+                                currentLine.contains("broadcasthost")) {
+                            list.add(currentLine);
+                        } else if (currentLine.matches("127\\.0\\.0\\.1.+")) {
+                            list.add("0 " + currentLine.substring(9).trim());
+                        } else if (currentLine.matches("0\\.0\\.0\\.0.+")) {
+                            list.add("0 " + currentLine.substring(7));
+                        } else {
+                            if (!currentLine.equals("")) {
+                                System.out.println(currentLine);
+                            }
+                        }
                     }
                     System.out.print(" Done\n");
                     currentTask.append(" Done\n");
@@ -204,7 +216,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                                     }
                                 }
                                 if (temp.contains(".")) {
-                                    list.add("127.0.0.1 " + temp);
+                                    list.add("0 " + temp);
                                 }
                             } else if (currentLine.contains("*")) {
                                 String temp = currentLine.substring(2, currentLine.indexOf("*"));
@@ -220,7 +232,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                                     }
                                 }
                                 if (temp.contains(".")) {
-                                    list.add("127.0.0.1 " + temp);
+                                    list.add("0 " + temp);
                                 }
                             } else if (currentLine.contains("/")) {
                                 String temp = currentLine.substring(2, currentLine.indexOf("/"));
@@ -236,10 +248,10 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
                                     }
                                 }
                                 if (temp.contains(".")) {
-                                    list.add("127.0.0.1 " + temp);
+                                    list.add("0 " + temp);
                                 }
                             } else {
-                                list.add("127.0.0.1 " + currentLine.substring(2));
+                                list.add("0 " + currentLine.substring(2));
                             }
                         }
                     }
@@ -258,7 +270,7 @@ public class HostsGrabber extends JFrame implements ActionListener, PropertyChan
         private String generateComments() {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
             String comments = "# ==================================================================================\n" +
-                    "# The following list was built from the these sources on " +
+                    "# The following list was built using HostsGrabber from the following sources:" +
                     simpleDateFormat.format(Calendar.getInstance().getTime()) + ":\n\n";
             for (String e : HOSTS_SOURCES) {
                 comments += "# " + e + "\n";
