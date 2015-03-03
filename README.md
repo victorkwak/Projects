@@ -28,12 +28,12 @@ of work in a few seconds with less error.
 <a href="https://github.com/victorkwak/Projects/tree/master/School">School</ka>
 ------------------------------------------------------------------------------
 
+**<a href="https://github.com/victorkwak/Projects/tree/master/School/Data%20Structures">Data Structures</a>**
+contains data structure implementations.
+
 **<a href="https://github.com/victorkwak/Projects/tree/master/School/FindBriefcase/src">FindBriefcase</a>** is a class
 group project - a game where you are a character (a ninja) that has sneaked into a building to steal the briefcase with
 the secret information, an item which is hidden in one of nine rooms.
 
 **<a href="https://github.com/victorkwak/Projects/tree/master/School/NotePad/src">NotePad</a>** is an attempt at
 replicating Microsoft's NotePad that comes with Windows.
-
-**<a href="https://github.com/victorkwak/Projects/tree/master/School/Data%20Structures">Data Structures</a>**
-contains data structure implementations.
