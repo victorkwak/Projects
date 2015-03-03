@@ -13,11 +13,11 @@ process of locating up-to-date and reputable hosts files for use with ad-blockin
 into your system.
 Currently, the program only supports the Mac and Linux platforms.
 
-**<a href="https://github.com/victorkwak/Projects/tree/master/Personal/DailyProgrammer">DailyProgrammer</a>**
-contains problems posted to reddit's subreddit /r/dailyprogrammer.
-
 **<a href="https://github.com/victorkwak/Projects/tree/master/Personal/Fibonacci/src">Fibonacci</a>** is a Fibonacci
 number generator. It features a GUI and generates numbers quickly using a fast doubling recursive method.
+
+**<a href="https://github.com/victorkwak/Projects/tree/master/Personal/DailyProgrammer">DailyProgrammer</a>**
+contains problems posted to reddit's subreddit /r/dailyprogrammer.
 
 *In progress* - **<a href="https://github.com/victorkwak/Projects/tree/master/Personal/NHLScraper/src">NHLScraper</a>**
 was inspired by an extra credit assignment in the Microeconomics class. The professor needed data for a research paper
