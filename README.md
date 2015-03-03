@@ -14,7 +14,7 @@ into your system.
 Currently, the program only supports the Mac and Linux platforms.
 
 **<a href="https://github.com/victorkwak/Projects/tree/master/Personal/Fibonacci/src">Fibonacci</a>** is a Fibonacci
-number generator. It features a GUI and generates numbers quickly using a fast doubling recursive method.
+number generator. It features a GUI and generates numbers quickly using a fast doubling method.
 
 **<a href="https://github.com/victorkwak/Projects/tree/master/Personal/DailyProgrammer">DailyProgrammer</a>**
 contains problems posted to reddit's subreddit /r/dailyprogrammer.
