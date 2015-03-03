@@ -7,9 +7,10 @@ required by the school.
 <a href="https://github.com/victorkwak/Projects/tree/master/Personal">Personal</a>
 ----------------------------------------------------------------------------------
 **<a href="https://github.com/victorkwak/HostsGrabber">HostsGrabber**</a>
-pulls and compiles several hosts files from the Internet as well as lists used by Ad-Block Plus to
-supplement those hosts files. The program automates the process of locating up-to-date and reputable hosts files for
-use with ad-blocking, as well as implementing the files into your system.
+is an efficient Internet ad-blocking implementation with minimal overhead. It pulls and compiles several hosts files
+from the Internet as well as lists used by Ad-Block Plus to supplement those hosts files. The program automates the
+process of locating up-to-date and reputable hosts files for use with ad-blocking, as well as implementing the files
+into your system.
 Currently, the program only supports the Mac and Linux platforms.
 
 **<a href="https://github.com/victorkwak/Projects/tree/master/Personal/DailyProgrammer">DailyProgrammer</a>**
