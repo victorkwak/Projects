@@ -53,7 +53,6 @@ public class Notepad extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
         setTitle("Untitled" + String.valueOf(newDocNum));
         setSize(800, 600);
-        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setVisible(true);
         addWindowListener(new WindowAdapter() {
             @Override
@@ -469,7 +468,10 @@ public class Notepad extends JFrame implements ActionListener {
                 file = new File(filename);
                 FileReader fileReader = new FileReader(file);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
-                textArea.read(fileReader, null);
+                String currentLine;
+                while ((currentLine = bufferedReader.readLine()) != null) {
+                    textArea.append(currentLine);
+                }
                 fileReader.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -686,7 +688,7 @@ public class Notepad extends JFrame implements ActionListener {
                     break;
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
         SwingUtilities.invokeLater(Notepad::new);
     }
